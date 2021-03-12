@@ -42,42 +42,47 @@
             text-decoration: none;
             -ms-interpolation-mode: bicubic;
         }
+
         p {
             color: #181f34;
             font-size: 14px;
         }
 
-        .desktop {
-            display: block;
-        }
-        .mobile {
-            display: none
-        }
-        .uiCard {
-            padding:20px 30px;
-        }
-        .rowDesktop {
-            display: table-row;
-        }
-        .rowMobile {
-            display: none;
+        *[class].uiCard {
+            padding:20px 30px !important;
         }
 
-        @media screen and (max-width: 480px) {
-            .desktop, .desktopLink {
-                display: none;
+        *[class].rowDesktop {
+            display: table-row !important;
+        }
+
+        *[class].mobile {
+            display: none !important;
+        }
+
+        *[class].desktop {
+            display: table !important;
+        }
+
+        *[class].rowMobile {
+            display: none !important;
+        }
+
+        @media only screen and (max-width: 480px) {
+            *[class].desktop, *[class].desktopLink, *[class].rowDesktop {
+                display: none !important;
             }
-            .mobile {
-                display: block;
+
+            *[class].mobile {
+                display: block !important;
             }
-            .uiCard {
-                padding:20px 15px;
+
+            *[class].uiCard {
+                padding:20px 15px !important;
             }
-            .rowDesktop {
-                display: none;
-            }
-            .rowMobile {
-                display: table-row;
+
+            *[class].rowMobile {
+                display: table-row !important;
             }
         }
 

@@ -3,12 +3,10 @@
 
 {% embed '../../ui/card/card.twig' %}
     {% block CONTENT %}
-        <table style="width: 100%;">
+        <table style="width: 100% !important; min-width: 100% !important;">
             <tr>
-                <td>
-                    <div style="text-align: center;">
-                        {% embed '../../ui/logo/default.twig' %}{% endembed %}
-                    </div>
+                <td style="text-align: center;">
+                    {% embed '../../ui/logo/default.twig' %}{% endembed %}
                 </td>
             </tr>
             <tr>
