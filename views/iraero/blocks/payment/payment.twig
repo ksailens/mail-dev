@@ -1,0 +1,33 @@
+{% if IS_PAYED == true %}
+    <table style="width:100%">
+        <tr>
+            <td>
+                {% embed './payment_success.twig' %}
+                {% endembed %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% embed './payment_info.twig' with {IS_PAYED:IS_PAYED} %}
+                {% endembed %}
+            </td>
+        </tr>
+    </table>
+{% endif %}
+
+{% if order.service_time_limit and IS_PAYED == false %}
+    <table style="width:100%">
+        <tr>
+            <td>
+                {% embed './payment_warning.twig' %}
+                {% endembed %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% embed './payment_info.twig' %}
+                {% endembed %}
+            </td>
+        </tr>
+    </table>
+{% endif %}

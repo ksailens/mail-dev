@@ -1,0 +1,33 @@
+{% set TEXT_AIRLINE_COMPANY= 'Авиакомпания "ИрАэро"' %}
+{% set TEXT_CONTACT_PLURAL= 'Контакты' %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+
+                    <div>
+                        {% embed '../../ui/logo/default.twig' %}{% endembed %}
+                    </div>
+                    <div>
+                        <span style="font-size: 12px;">{{ TEXT_AIRLINE_COMPANY }}</span>
+                    </div>
+                </td>
+                <td>
+                    <table valign="middle" align="right" style="font-size: 14px; line-height: 24px;">
+                        <tr>
+                            <td style="color:#949494; font-size: 12px;">{{ TEXT_CONTACT_PLURAL }}:</td>
+                        </tr>
+                        <tr>
+                            <td><a href="tel:83952266199">8 (3952) 266-199</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="tel:88007074996">8 (800) 707-49-96</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,44 @@
+<div class="desktop">
+    <table style="width: 100%; font-size: 14px;">
+        {% for passanger in passengers %}
+            <tr>
+                <td style="font-weight: 600; width: 60px;">Тариф:</td>
+                <td>
+                    {% if passanger.fareFamily_name %}
+                        {{ passanger.fareFamily_name }}
+                    {% else %}
+                        {{ passanger.tariff_type }}
+                    {% endif %}
+                </td>
+                <td style="font-weight: 600; width: 90px;">Пассажир:</td>
+                <td>{{ passanger.last_name ~ ' ' ~ passanger.first_name ~ ' (' ~ passanger.type.title|lower ~ ')' }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="mobile">
+    <table style="width: 100%; font-size: 14px;">
+        {% for passanger in passengers %}
+            <tr>
+                <td style="font-weight: 600; width: 60px;">Тариф:</td>
+                <td>
+                    {% if passanger.fareFamily_name %}
+                        {{ passanger.fareFamily_name }}
+                    {% else %}
+                        {{ passanger.tariff_type }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td style="font-weight: 600; width: 90px;">Пассажир:</td>
+                <td>{{ passanger.last_name ~ ' ' ~ passanger.first_name ~ ' (' ~ passanger.type.title|lower ~ ')' }}</td>
+            </tr>
+            {% if loop.index != passengers|length %}
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>

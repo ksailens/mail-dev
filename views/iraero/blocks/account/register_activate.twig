@@ -1,0 +1,38 @@
+{% set TEXT_YOUR_LOGIN = 'Ваш логин' %}
+{% set TEXT_ACTIVATE = 'Активировать' %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;" valign="middle" align="center">
+            <tr>
+                <td>
+                    <div style="font-size: 18px">
+                        {{ TEXT_YOUR_LOGIN }}:
+                    </div>
+                    <div>
+                        <strong>{{ email }}</strong>
+                    </div>
+                </td>
+
+                <td>
+                    <table valign="middle" align="right">
+                        <tr>
+                            <td>
+                                <table valign="middle">
+                                    <tr>
+                                        <td>
+                                            {% embed '../../ui/button/button.twig' %}
+                                                {% block BUTTON_HREF %}{{ confirm_url }}{% endblock %}
+                                                {% block BUTTON_LABEL %}{{ TEXT_ACTIVATE }}{% endblock %}
+                                            {% endembed %}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

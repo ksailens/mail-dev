@@ -1,0 +1,85 @@
+{% set TEXT_DEPARTURE= 'Отправление' %}
+{% set TEXT_ARRIVAL= 'Прибытие' %}
+{% set TEXT_FLIGHT= 'Рейс' %}
+{% set TEXT_LOCAL_TIME= 'Мест. время' %}
+{% set TEXT_TECH_STOP= 'Техн. остановка' %}
+{% set TEXT_TECH_STOP_PLURAL= 'Тех. остановки' %}
+{% set TEXT_HOUR= 'ч.' %}
+{% set TEXT_MINUTE= 'мин.' %}
+
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table>
+            {% for flight in flights %}
+                <tr>
+                    <td>
+                        <div style="margin-top: 30px">
+                            {% embed './segment_direction.twig' %}
+                                {% block DIRECTION_FROM_CITY %}{{ flight.air_dep_title }}{% endblock %}
+                                {% block DIRECTION_FROM_IATA %}{{ flight.airport_dep_code }}{% endblock %}
+                                {% block DIRECTION_TO_CITY %}{{ flight.air_arr_title }}{% endblock %}
+                                {% block DIRECTION_TO_IATA %}{{ flight.airport_arr_code }}{% endblock %}
+                            {% endembed %}
+                            <table style="width: 100%">
+                                <tr style="vertical-align: top;">
+                                    <!-- Departure -->
+                                    <td style="width: 35%">
+                                        {% embed './body_column.twig' %}
+                                            {% block COLUMN_LABEL %}
+                                                {{ TEXT_DEPARTURE }}
+                                            {% endblock %}
+                                            {% block COLUMN_TIME %}
+                                                <div>{{ flight.time_dep }}</div>
+                                                <div style="font-size: 12px; color:#7b7b7b">{{ TEXT_LOCAL_TIME }}</div>
+                                            {% endblock %}
+                                            {% block COLUMN_DATE %}{{ flight.date_dep }}{% endblock %}
+                                        {% endembed %}
+                                    </td>
+                                    <!-- Arrive -->
+                                    <td style="width: 25%">
+                                        {% embed './body_column.twig' %}
+                                            {% block COLUMN_LABEL %}
+                                                {{ TEXT_ARRIVAL }}
+                                            {% endblock %}
+                                            {% block COLUMN_TIME %}
+                                                <div>{{ flight.time_arr }}</div>
+                                                <div style="font-size: 12px; color:#7b7b7b">{{ TEXT_LOCAL_TIME }}</div>
+                                            {% endblock %}
+                                            {% block COLUMN_DATE %}{{ flight.date_arr }}{% endblock %}
+                                        {% endembed %}
+                                    </td>
+
+                                    <td>
+                                        {% embed './body_column.twig' %}
+                                            {% block COLUMN_LABEL %}
+                                                {{ TEXT_FLIGHT }}
+                                            {% endblock %}
+                                            {% block COLUMN_TIME %}{{ flight.supplier_code }}-{{ flight.flight_number }}{% endblock %}
+                                            {% block COLUMN_DATE %}{{ flight.aircraft }}{% endblock %}
+                                        {% endembed %}
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            {% if flight.stops is defined and flight.stops is not empty %}
+                                <div style="margin-top:10px; border:1px solid #ddd; padding:10px; font-size: 12px">
+                                    {% if flight.stops|length > 1 %}
+                                        {{ TEXT_TECH_STOP_PLURAL }}:&nbsp;
+                                    {% else %}
+                                        {{ TEXT_TECH_STOP }}:&nbsp;
+                                    {% endif %}
+                                    {% for stop in flight.stops %}
+                                        {{ stop.city_title }} ({{ stop.duration.hour }}{{ TEXT_HOUR }} {{ stop.duration.minute }}{{ TEXT_MINUTE }}){% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endblock %}
+{% endembed %}

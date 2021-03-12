@@ -1,0 +1,29 @@
+{% set TEXT_AIRLINE= 'Авиакомпания' %}
+{% set TEXT_IRAERO= 'ИрАэро' %}
+
+{% set TITLE %}
+    {% block HEADER_TITLE %} {% endblock %}
+{% endset %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    {% embed '../../ui/logo/default.twig' %}{% endembed %}
+                </td>
+                <td style="text-align:right">
+                    <div>{{ TEXT_AIRLINE }}</div>
+                    <div style="font-size: 20px">"{{ TEXT_IRAERO }}"</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1 style="font-size: 24px">
+                        {{ TITLE }}
+                    </h1>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

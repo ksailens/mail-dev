@@ -1,0 +1,29 @@
+{% set TEXT_AIRLINE_COMPANY= 'Авиакомпания "ИрАэро"' %}
+{% set TEXT_CONTACT_PLURAL= 'Контакты' %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <div style="text-align: center;">
+                        {% embed '../../ui/logo/default.twig' %}{% endembed %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="text-align: center;">Благодарим за бронирования и желаем хорошего полета!</p>
+                </td>
+            </tr>
+            <tr style="text-align:center;">
+                <td style="padding-top: 24px; font-size: 16px; font-weight: bold">
+                    {% embed '../../ui/button/button.twig' with {IS_CENTER: true} %}
+                        {% block BUTTON_HREF %}{{ feedbackLink }}{% endblock %}
+                        {% block BUTTON_LABEL %}{{ 'Связаться с нами' }}{% endblock %}
+                    {% endembed %}
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

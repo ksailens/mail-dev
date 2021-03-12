@@ -1,0 +1,31 @@
+{% if IS_PAYED == true %}
+    <div style=" text-align: center; padding:5px; width:100%; background-color: #FFCB7E; border-radius: 15px; overflow: hidden; display: inline-block">
+        <strong>You Bought A Ticket. Order Has Been Paid. Have A Nice Trip!</strong>
+        {% if payLink is defined and payLink != '' %}
+            <div>
+                <a style="border-radius:10px; margin-top:10px; display:inline-block; padding:5px; background-color: #f9962d; color: #fff !important" href="{{ payLink }}"><strong>{% block GO_ORDER_LINK_LABEL %}Go to order{% endblock %}</strong></a>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+
+{% if order.service_time_limit and IS_PAYED == false %}
+    <div style="width:100%; background-color: #FFCB7E; border-radius: 15px; overflow: hidden; display: inline-block">
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 30%; font-size: 18px; padding:0 25px">
+                    <strong>{% block PAY_BEFORE_LABEL %}%PAY_BEFORE%{% endblock %}:</strong>
+                </td>
+                <td style="width: 60%; text-align: center; font-size: 18px; padding:0 25px">
+                    <strong>{{ order.service_time_limit }}</strong>
+                </td>
+                {% if payLink is defined and payLink != '' %}
+                    <td style="font-size: 18px; padding:0 25px; background-color: #FD9600">
+                        <a style="color: #fff !important" href="{{ payLink }}"><strong>{% block PAY_BEFORE_LINK_LABEL %}%LINK%{% endblock %}</strong></a>
+                    </td>
+                {% endif %}
+            </tr>
+        </table>
+    </div>
+{% endif %}

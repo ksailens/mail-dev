@@ -1,0 +1,31 @@
+{% set HREF %}
+    {% block BUTTON_HREF %} {% endblock %}
+{% endset %}
+
+
+{% set DEFAULT_MARGIN = '' %}
+{% set CENTER_MARGIN = '0 auto' %}
+{% set TABLE_MARGIN = DEFAULT_MARGIN %}
+
+{% if IS_CENTER == true %}
+    {% set TABLE_MARGIN = CENTER_MARGIN %}
+{% endif %}
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="auto" style="margin: {{ TABLE_MARGIN }}">
+    <tr>
+        <td bgcolor="#ff3440"
+            style="
+           padding: 8px 30px;
+           color:#fff;
+           display:block;
+           text-decoration:none;
+           background-color:#ff3440;
+           cursor: pointer;
+            ">
+            <a href="{{ HREF }}" style="color:#ffffff;display:inline-block;text-decoration:none" target="_blank">
+                {% block BUTTON_LABEL %} {% endblock %}
+            </a>
+        </td>
+    </tr>
+</table>

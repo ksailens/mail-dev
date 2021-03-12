@@ -1,0 +1,23 @@
+{% set TEXT_PASSENGERS= 'Пассажиры' %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table>
+            <tr>
+                <td style="vertical-align: top; padding-bottom: 10px;">
+                    <span style="display:inline-block; border-bottom: 1px dashed; padding-bottom: 3px">{{ TEXT_PASSENGERS }}:</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% for passanger in passengers %}
+                        <span style="display:inline-block; margin:5px; border:10px solid transparent; border-radius:15px; background-color: #eee; line-height: 1.5; font-weight: bold">
+                                    {% block PASSENGER_LIST %}{{ passanger.last_name }} {{ passanger.first_name }}{% endblock %}
+                                </span>
+                        &ensp;
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

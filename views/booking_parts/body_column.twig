@@ -1,0 +1,22 @@
+<div>
+    <table>
+        <tr>
+            <td>
+                <div style="margin-bottom:10px; display:inline-block; border-bottom: 1px dashed; padding-bottom: 3px">
+                    {% block COLUMN_LABEL %}%LABEL%{% endblock %}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-size: 18px; line-height: 18px;">{% block COLUMN_TIME %}%TIME%{% endblock %}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-size: 14px; line-height: 18px;">{% block COLUMN_DATE %}%DATE%{% endblock %}</span>
+            </td>
+        </tr>
+
+    </table>
+</div>

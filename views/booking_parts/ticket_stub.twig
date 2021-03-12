@@ -1,0 +1,73 @@
+{% set NON_TORN_CONTENT %}
+    <tr>
+        <td>
+            <table style="margin-top: 20px">
+                <tr>
+                    <td><img src="{{ baseSrc }}images/mail/warning.png" alt="!"/></td>
+                    <td style="text-transform: uppercase">Attention!</td>
+                </tr>
+            </table>
+            <strong style="display:inline-block; margin-top: 10px; font-size: 12px; line-height: 1.2;">
+                <span>We recommend that you pay for your order as soon as possible, the airline has the right to change the price or remove seats at any time before payment and ticket issuance.</span>
+            </strong>
+        </td>
+    </tr>
+{% endset %}
+
+{% set TORN_CONTENT %}
+    <tr>
+        <td style="font-size: 12px">
+            <table style="margin-top: 20px">
+                <tr style="text-align: center">
+                    <td><strong>For all questions you can contacts us:</strong></td>
+                </tr>
+            </table>
+            <table style="margin-top: 20px">
+                <tr style="text-align: center">
+                    <td><img style="width: 20px" src="{{ baseSrc }}images/mail/icon-phone.png" alt=""/></td>
+                    <td><strong><a href="tel:+905442410239">+90 544 241 02 39</a></strong></td>
+                </tr>
+            </table>
+            <table style="margin-top: 20px">
+                <tr style="text-align: center">
+                    <td>
+                        <strong style="text-align: center">Customer Service Request</strong>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+{% endset %}
+
+{% if isTorn == true %}
+    {% set STUB_CONTENT = TORN_CONTENT %}
+    <td style="height: 1px; width: 50px; background-color: #fff">
+        <div style="background-image: url({{ baseSrc }}images/mail/dots-with-space.png);height: 100%;width: 100%">
+        </div>
+    </td>
+
+{% else %}
+    {% set STUB_CONTENT = NON_TORN_CONTENT %}
+    <td style="height: 1px; width: 25px; background-color: #fff">
+        <div style="background-image: url({{ baseSrc }}images/mail/dots.png);height: 100%;width: 100%">
+        </div>
+    </td>
+{% endif %}
+
+<td style="width: 175px; height: 1px;">
+    <div style="height: 100%; background-color: #fff; padding: 10px 15px">
+        <table>
+            <tr>
+                <td>
+                    <a style="display: inline-block; width: 100%" href="https://bipfly.de/">
+                        <img style="width: 100%;" src="{{ baseSrc }}images/services/bipfly.png"
+                             alt="bipfly.de"/>
+                    </a>
+                </td>
+            </tr>
+
+
+            {{ STUB_CONTENT }}
+        </table>
+    </div>
+</td>

@@ -1,0 +1,120 @@
+{% extends './templates/base_template.twig' %}
+
+{% block HTML_ATTRS %} lang="{{ lang }}" {% endblock %}
+
+
+{% block BODY %}
+    <table border="0" cellpadding="0" cellspacing="0"
+           style="border-radius: 15px; overflow: hidden; width:800px; table-layout: fixed">
+        <tr>
+            <td style="height:1px;">
+                <!-- Header -->
+                <div style="height: 100%; background-color: #fff;">
+                    {% embed './booking_parts/header.twig' %}
+                        {% block HEADER_CONTENT %}Order
+                            <strong>{{ order.billing_number|default('00000') }}</strong> dated
+                            <strong>{{ order.created|default('00.00.0000') }}</strong> in the amount of
+                            <strong>{{ order.amount_total_sum|default('') }} {{ order.currency|default('') }}</strong>
+                        {% endblock %}
+                    {% endembed %}
+
+                    <!-- Content -->
+                    <div style="padding: 10px 20px; background-color: #fff;">
+                        <table style=" width:100%">
+
+                            <!-- Pay before -->
+                            <tr>
+                                <td>
+                                    {% embed './booking_parts/pay_before.twig' with {'IS_PAYED': true} %}
+                                        {% block PAY_BEFORE_LABEL %}Pay before{% endblock %}
+                                        {% block PAY_BEFORE_LINK_LABEL %}Pay{% endblock %}
+                                    {% endembed %}
+                                </td>
+                            </tr>
+
+                            <!-- Segment -->
+                            {% for flight in flights %}
+                                <tr>
+                                    <td>
+                                        <div style="margin-top: 30px">
+                                            {% embed './booking_parts/segment_direction.twig' %}
+                                                {% block DIRECTION_FROM_CITY %}{{ flight.air_dep_title }}{% endblock %}
+                                                {% block DIRECTION_FROM_IATA %}{{ flight.airport_dep_code }}{% endblock %}
+                                                {% block DIRECTION_TO_CITY %}{{ flight.air_arr_title }}{% endblock %}
+                                                {% block DIRECTION_TO_IATA %}{{ flight.airport_arr_code }}{% endblock %}
+                                            {% endembed %}
+                                            <table style="width: 100%">
+                                                <tr style="vertical-align: top;">
+                                                    <!-- Departure -->
+                                                    <td style="width: 35%">
+                                                        {% embed './booking_parts/body_column.twig' %}
+                                                            {% block COLUMN_LABEL %}
+                                                                Departure
+                                                            {% endblock %}
+                                                            {% block COLUMN_TIME %}{{ flight.time_dep }}{% endblock %}
+                                                            {% block COLUMN_DATE %}{{ flight.date_dep }}{% endblock %}
+                                                        {% endembed %}
+                                                    </td>
+                                                    <!-- Arrive -->
+                                                    <td style="width: 25%">
+                                                        {% embed './booking_parts/body_column.twig' %}
+                                                            {% block COLUMN_LABEL %}
+                                                                Arrive
+                                                            {% endblock %}
+                                                            {% block COLUMN_TIME %}{{ flight.time_arr }}{% endblock %}
+                                                            {% block COLUMN_DATE %}{{ flight.date_arr }}{% endblock %}
+                                                        {% endembed %}
+                                                    </td>
+
+                                                    <td>
+                                                        {% embed './booking_parts/body_column.twig' %}
+                                                            {% block COLUMN_LABEL %}
+                                                                Flight
+                                                            {% endblock %}
+                                                            {% block COLUMN_TIME %}{{ flight.supplier_code }}-{{ flight.flight_number }}{% endblock %}
+                                                            {% block COLUMN_DATE %}{{ flight.aircraft }}{% endblock %}
+                                                        {% endembed %}
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+                                            {% if flight.stops is defined and flight.stops is not empty %}
+                                                <div style="margin-top:10px; border:1px solid #ddd; padding:10px; font-size: 12px">
+                                                        {% if flight.stops|length > 1 %}
+                                                            Tech. stops:&nbsp;
+                                                        {% else %}
+                                                            Tech. stop:&nbsp;
+                                                        {% endif %}
+                                                        {% for stop in flight.stops %}
+                                                            {{ stop.city_title }} ({{ stop.duration.hour }}h {{ stop.duration.minute }}min){% if not loop.last %}, {% endif %}
+                                                        {% endfor %}
+                                                </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td>
+                                    {% embed './booking_parts/passengers.twig' %}
+                                        {% block PASSENGERS_LABEL %}
+                                            Passengers
+                                        {% endblock %}
+                                    {% endembed %}
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </td>
+
+            {% embed './booking_parts/ticket_stub.twig' with {'isTorn': false} %}
+            {% endembed %}
+
+        </tr>
+
+    </table>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% set TEXT_BUTTON_LABEL= 'Оплатить' %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%; font-size: 14px;">
+            <tr>
+                <td>
+                    <p style="
+                      font-size: 17px;
+                      font-weight: bold;"
+                    >Общая стоимость билетов</p>
+                </td>
+            </tr>
+            <tr style="font-weight: 600;">
+                <td>Авиабилеты</td>
+                <td style="text-align: right; width: 100px;">{{ prices.tickets.total ~ ' ₽' }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Тариф</td>
+                <td style="text-align: right;">{{ prices.tickets.tariff ~ ' ₽' }}</td>
+            </tr>
+            <tr>
+                <td>Таксы</td>
+                <td style="text-align: right;">{{ prices.tickets.taxes ~ ' ₽' }}</td>
+            </tr>
+            <tr>
+                <td>Сборы</td>
+                <td style="text-align: right;">{{ prices.tickets.fees ~ ' ₽' }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            {% if prices.insurances %}
+                <tr style="font-weight: 600;">
+                    <td>Страхование</td>
+                    <td style="text-align: right;">{{ prices.insurances ~ ' ₽' }}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            {% endif %}
+
+            {% if prices.additional_services is not empty %}
+                {% if prices.additional_services.total %}
+                    <tr style="font-weight: 600;">
+                        <td>Дополнительные услуги</td>
+                        <td style="text-align: right;">{{ prices.additional_services.total ~ ' ₽' }}</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    {% if prices.additional_services.aeroexpress %}
+                        <tr>
+                            <td>Аэроэкспресс в аэропорт</td>
+                            <td style="text-align: right;">{{ prices.additional_services.aeroexpress ~ ' ₽' }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if prices.additional_services.FlightChangesNotification %}
+                        <tr>
+                            <td>Уведомления об отмене или переносе рейса</td>
+                            <td style="text-align: right;">{{ prices.additional_services.FlightChangesNotification ~ ' ₽' }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if prices.additional_services.GuaranteeReturnInCaseIllness %}
+                        <tr>
+                            <td>Гарантия возврата в случае болезни без сервисного сбора</td>
+                            <td style="text-align: right;">{{ prices.additional_services.GuaranteeReturnInCaseIllness ~ ' ₽' }}</td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </table>
+        {% embed '../../ui/separator/separator.twig' %}{% endembed %}
+        <table style="width: 100%; font-size: 14px;">
+            <tr style="font-weight: 600;">
+                <td>Общая сумма за всех пассажиров</td>
+                <td style="text-align: right; width: 100px;">{{ prices.total_price ~ ' ₽' }}</td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,15 @@
+{% set TEXT_SUCCESS = 'Вы купили билет. Приятного путешествия!' %}
+{% set TEXT_DESCRIPTION = 'Подробную информацию можно найти на странице заказа.' %}
+
+{% embed '../../ui/card/card.twig' with {IS_SUCCESS:true} %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <div style="font-size: 18px">{{ TEXT_SUCCESS }}</div>
+                    <div>{{ TEXT_DESCRIPTION }}</div>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

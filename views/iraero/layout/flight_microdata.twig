@@ -1,0 +1,49 @@
+{#
+reservationStatus:
+"http://schema.org/ReservationConfirmed" — покупка билета подтверждена;
+http://schema.org/ReservationCancelled" — рейс отменен;
+"http://schema.org/ReservationHold" — бронирование ожидает оплаты;
+"http://schema.org/ReservationPending" — бронирование ожидает подтверждения.
+
+reservationId - Номер бронирования.
+#}
+ {% for passanger in passengers %}
+     {% for flight in flights %}
+         <div itemscope itemtype="http://schema.org/FlightReservation">
+             <meta itemprop="reservationId" content="{{ order.billing_number|default('00000') }}"/>
+             <meta itemprop="reservationNumber" content="{{ order.billing_number|default('00000') }}"/>
+             <link itemprop="reservationStatus" href="http://schema.org/ReservationHold"/>
+
+             <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+                 <meta itemprop="name" content="{{ passanger.last_name }} {{ passanger.first_name }}"/>
+             </div>
+
+             <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Flight">
+                 <meta itemprop="flightNumber" content="201"/>
+                 <div itemprop="airline" itemscope itemtype="http://schema.org/Airline">
+                     <meta itemprop="name" content="{{ flight.flight_number }}"/>
+                     <meta itemprop="iataCode" content="{{ flight.supplier_code }}"/>
+                 </div>
+                 <div itemprop="provider" itemscope itemtype="http://schema.org/Airline">
+                     <meta itemprop="name" content="{{ flight.flight_number }}"/>
+                     <meta itemprop="iataCode" content="{{ flight.supplier_code }}"/>
+                 </div>
+                 <div itemprop="departureAirport" itemscope itemtype="http://schema.org/Airport">
+                     <meta itemprop="name" content="{{ flight.air_dep_title }}"/>
+                     <meta itemprop="iataCode" content="{{ flight.airport_dep_code }}"/>
+                 </div>
+                 <meta itemprop="departureTime" content="{{ flight.time_dep }}"/>
+                 <div itemprop="arrivalAirport" itemscope itemtype="http://schema.org/Airport">
+                     <meta itemprop="name" content="{{ flight.air_arr_title }}"/>
+                     <meta itemprop="iataCode" content="{{ flight.airport_arr_code }}"/>
+                 </div>
+                 <meta itemprop="arrivalTime" content="{{ flight.time_arr }}"/>
+             </div>
+
+             <link itemprop="checkinUrl" href="{{ payLink }}"/>
+             <div itemprop="potentialAction" itemscope itemtype="http://schema.org/CheckInAction">
+                 <link itemprop="target" href="{{ payLink }}"/>
+             </div>
+         </div>
+     {% endfor %}
+ {% endfor %}

@@ -1,0 +1,16 @@
+{% set TEXT_SUCCESS_UPDATE = 'Вы успешно обновили пароль для своей учетной записи.' %}
+{% set TEXT_ACTIVATE = 'Активировать' %}
+
+{% embed '../../ui/card/card.twig' with {IS_SUCCESS:true} %}
+    {% block CONTENT %}
+        <table style="width: 100%;" valign="middle" align="center">
+            <tr>
+                <td>
+                    <div style="font-size: 18px">
+                        {{ TEXT_SUCCESS_UPDATE }}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

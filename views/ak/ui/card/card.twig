@@ -1,0 +1,30 @@
+{% set DEFAULT_COLOR = '#ffffff' %}
+{% set HEADER_COLOR = '#2f3a58' %}
+{% set FOOTER_COLOR = '' %}
+{% set CARD_BACKGROUND = DEFAULT_COLOR %}
+
+{% if IS_HEADER == true %}
+    {% set CARD_BACKGROUND = HEADER_COLOR %}
+{% endif %}
+
+{% if IS_FOOTER == true %}
+    {% set CARD_BACKGROUND = FOOTER_COLOR %}
+{% endif %}
+
+{% if IS_BODY_BLOCK == true %}
+    <table style="width:100%">
+        <tr>
+            <td><p style="padding: 12px; margin:0; font-size: 1px; line-height:1px;">&nbsp;</p></td>
+        </tr>
+    </table>
+{% endif %}
+<table style="
+        width:100%;
+        background-color:  {{ CARD_BACKGROUND }};
+        ">
+    <tr>
+        <td class="uiCard">
+            {% block CONTENT %} {% endblock %}
+        </td>
+    </tr>
+</table>

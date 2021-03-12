@@ -1,0 +1,21 @@
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    {% embed '../../ui/logo/default.twig' %}{% endembed %}
+                </td>
+                <td style="text-align:right">
+                    <div>
+                        <a href="https://www.aviakassa.com/account/" style="border:none;text-decoration:none;color: #fff;font-size: 13px;padding-right: 24px;" target="_blank">
+                            Мой кабинет
+                        </a>
+                        <a class="desktopLink" href="{{ feedbackLink }}" style="border:none;text-decoration:none;color: #fff;font-size: 13px;padding-right: 24px;" target="_blank">
+                            Связаться с нами
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

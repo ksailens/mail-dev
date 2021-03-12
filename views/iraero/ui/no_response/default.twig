@@ -1,0 +1,15 @@
+{% set TEXT_AUTOMATIC_GENERATED = 'Это письмо сгенерировано автоматически, не отвечайте на него.' %}
+{% set TEXT_TRULLY_YOURS = 'С уважением' %}
+
+{% embed '../card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td style="font-size: 12px;">
+                    <div>{{ TEXT_AUTOMATIC_GENERATED }}</div>
+                    <div>{{ TEXT_TRULLY_YOURS }}, {{ siteName }}</div>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

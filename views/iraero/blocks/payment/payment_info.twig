@@ -1,0 +1,50 @@
+{% set TEXT_UNPAYED_BUTTON= 'Оплатить' %}
+{% set TEXT_PAYED_BUTTON_LABEL = 'Подробнее' %}
+{% set TEXT_ORDER= 'Заказ' %}
+{% set TEXT_FROM= 'от' %}
+{% set TEXT_PAY_BEFORE= 'Оплатить до' %}
+
+{% set TEXT_BUTTON_LABEL = UNPAYED_BUTTON_LABEL %}
+
+{% if IS_PAYED == true %}
+    {% set TEXT_BUTTON_LABEL = TEXT_PAYED_BUTTON_LABEL %}
+{% endif %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <div style="font-size: 18px; margin-bottom: 8px">{{ TEXT_ORDER }}</div>
+                    <div>
+                        №<strong>{{ order.billing_number|default('00000') }}</strong> {{ TEXT_FROM }}
+                        <strong>{{ order.created|default('00.00.0000') }}</strong>
+                    </div>
+                </td>
+                <td>
+                    <table align="right" valign="middle">
+
+                        <tr style="text-align: right;">
+                            <td style="padding-right: 16px; font-size: 18px">
+                                <strong>{{ order.amount_total_sum|default('') }} {{ order.currency|default('') }}</strong>
+                            </td>
+                            <td>
+                                {% embed '../../ui/button/button.twig' %}
+                                    {% block BUTTON_HREF %}{{ payLink }}{% endblock %}
+                                    {% block BUTTON_LABEL %}{{ TEXT_BUTTON_LABEL }}{% endblock %}
+                                {% endembed %}
+                            </td>
+                        </tr>
+
+                        {% if order.service_time_limit and IS_PAYED == false %}
+                            <tr>
+                                <td style="font-size: 12px; padding-top:10px"
+                                    colspan="2">{{ TEXT_PAY_BEFORE }} {{ order.service_time_limit }}</td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

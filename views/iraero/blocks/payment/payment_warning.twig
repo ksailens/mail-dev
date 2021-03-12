@@ -1,0 +1,14 @@
+{% set TEXT_RECOMMENDATION = ' Мы рекомендуем вам оплатить заказ как можно скорее, авиакомпания имеет право изменить цену или убрать места в любое время до оплаты и выдачи билета.' %}
+
+
+{% embed '../../ui/card/card.twig' with {IS_WARNING:true} %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    {{ TEXT_RECOMMENDATION }}
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}

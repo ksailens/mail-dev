@@ -1,0 +1,40 @@
+{% extends 'iraero/layout/root.twig' %}
+
+{% block HTML_ATTRS %} lang="{{ lang }}" {% endblock %}
+
+{% set TEXT_TITLE_SUCCESS_BOOKING= 'Восстановление учетной записи' %}
+
+{% block BODY %}
+
+    <table border="0" cellpadding="0" cellspacing="0"
+           style="width:600px; table-layout: fixed">
+        <tr>
+            <td>
+                {% embed './iraero/layout/parts/header.twig' %}
+                    {% block HEADER_TITLE %}{{ TEXT_TITLE_SUCCESS_BOOKING }}{% endblock %}
+                {% endembed %}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% embed './iraero/blocks/account/password_recover.twig' %}
+                {% endembed %}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% embed './iraero/ui/no_response/default.twig' %}
+                {% endembed %}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% embed './iraero/layout/parts/footer.twig' %}
+                {% endembed %}
+            </td>
+        </tr>
+    </table>
+{% endblock %}

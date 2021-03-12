@@ -1,0 +1,35 @@
+{% set DEFAULT_COLOR = '#fff' %}
+{% set WARNING_COLOR = '#fff0a7' %}
+{% set SUCCESS_COLOR = '#d0ff9d' %}
+{% set CARD_BACKGROUND = DEFAULT_COLOR %}
+
+{% if IS_WARNING == true %}
+    {% set CARD_BACKGROUND = WARNING_COLOR %}
+{% endif %}
+
+{% if IS_SUCCESS == true %}
+    {% set CARD_BACKGROUND = SUCCESS_COLOR %}
+{% endif %}
+
+<table style="width:100%">
+    <tr>
+        <td><p style="padding: 0; margin:0; font-size: 2px; line-height:2px;">&nbsp;</p></td>
+    </tr>
+</table>
+<table style="
+        width:100%;
+        background-color:  {{ CARD_BACKGROUND }};
+        border-radius: 2px;
+        box-shadow: 0 6px 12px rgba(0,36,72,0.06);
+        ">
+    <tr>
+        <td style="padding:16px;">
+            {% block CONTENT %} {% endblock %}
+        </td>
+    </tr>
+</table>
+<table style="width:100%">
+    <tr>
+        <td><p style="padding: 0; margin:0; font-size: 2px;  line-height: 2px;">&nbsp;</p></td>
+    </tr>
+</table>
