@@ -256,21 +256,23 @@ const booking_dump_ak = {
 }
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  // service: 'gmail',
+  host: 'smtp.yandex.ru',
   auth: {
-    type: 'OAuth2',
-    user: 'devsevsergius@gmail.com',
-    clientId: '',
-    clientSecret: '',
-    accessToken: '',
-    refreshToken: ''
-
+    // type: 'OAuth2',
+    // user: 'devsevsergius@gmail.com',
+    // clientId: '',
+    // clientSecret: '',
+    // accessToken: '',
+    // refreshToken: ''
+    user: 'ksailens',
+    pass: '682500qW'
   }
 });
 
 var mailOptions = {
-  from: 'devsevsergius@gmail.com',
-  to: 'sevsergius@gmail.com',
+  from: 'ksailens@yandex.ru',
+  to: 'arkadiygertsovskiy@gmail.com',
   subject: 'Sending Email using Node.js'
 };
 
@@ -310,7 +312,7 @@ app.get('/iraero_restore', function (req, res) {
 
 app.get('/sendEmail', function (req, res) {
 
-  res.render(req.query.template, booking_dumb, function (err, html) {
+  res.render(req.query.template, booking_dump_ak, function (err, html) {
 
     console.log('sending email...');
     transporter.sendMail({
