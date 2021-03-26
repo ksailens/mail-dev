@@ -10,47 +10,46 @@
                       font-size: 18px;
                       font-weight: 600;
                       text-align: center;
+                      margin-top: 20px;
+                      margin-bottom: 30px;
                       color: #181f34;"
                     >Поездка забронирована!</p>
-                    <p>{{ app.request.headers }}</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p>Благодарим за ваше бронирование. Рекомендуем оплатить бронирование как можно быстрее, поскольку авиакомпания имеет право изменить стоимость или снять места в любое время до оплаты и выписки билета.</p>
+                    <p style="line-height: 1.5; margin-bottom: 24px; text-align: justify;">Благодарим за ваше бронирование. Рекомендуем оплатить бронирование как можно быстрее, поскольку авиакомпания имеет право изменить стоимость или снять места в любое время до оплаты и выписки билета.</p>
                 </td>
             </tr>
         </table>
-        <table class="desktop"  style="width: 100%;">
-            <tr style="text-align:left; font-size: 12px; font-weight: 600;">
-                <th>Номер бронирования</th>
-                <th>Оплатить до</th>
-                <th>Статус</th>
-            </tr>
-            <tr style="text-align:left; font-size: 14px;">
-                <td>{{ order.billing_number }}</td>
-                <td>{{ order.service_time_limit ~ ' (UTC +3)' }}</td>
-                <td>{{ order.status.title }}</td>
-            </tr>
-        </table>
-        <table class="mobile" style="width: 100%;">
-            <tr style="text-align:left; font-size: 12px; font-weight: 600;">
-                <th>Номер бронирования</th>
-            </tr>
-            <tr style="text-align:left; font-size: 14px;">
-                <td>{{ order.billing_number }}</td>
-            </tr>
-            <tr style="text-align:left; font-size: 12px; font-weight: 600;">
-                <th>Оплатить до</th>
-            </tr>
-            <tr style="text-align:left; font-size: 14px;">
-                <td>{{ order.service_time_limit ~ ' (UTC +3)' }}</td>
-            </tr>
-            <tr style="text-align:left; font-size: 12px; font-weight: 600;">
-                <th>Статус</th>
-            </tr>
-            <tr style="text-align:left; font-size: 14px;">
-                <td>{{ order.status.title }}</td>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <table align="left" style="margin-right: 50px;">
+                        <tr style="text-align:left; font-size: 12px; font-weight: 600;">
+                            <th>Номер бронирования</th>
+                        </tr>
+                        <tr style="text-align:left; font-size: 14px;">
+                            <td>{{ order.billing_number }}</td>
+                        </tr>
+                    </table>
+                    <table align="left" style="margin-right: 50px;">
+                        <tr style="text-align:left; font-size: 12px; font-weight: 600;">
+                            <th>Оплатить до</th>
+                        </tr>
+                        <tr style="text-align:left; font-size: 14px;">
+                            <td>{{ order.service_time_limit ~ ' (UTC +3)' }}</td>
+                        </tr>
+                    </table>
+                    <table align="left">
+                        <tr style="text-align:left; font-size: 12px; font-weight: 600;">
+                            <th>Статус</th>
+                        </tr>
+                        <tr style="text-align:left; font-size: 14px;">
+                            <td>{{ order.status.title }}</td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
         <table  style="width: 100%;">

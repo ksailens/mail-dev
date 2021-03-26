@@ -2,9 +2,11 @@
 {% set HEADER_COLOR = '#2f3a58' %}
 {% set FOOTER_COLOR = 'transparent' %}
 {% set CARD_BACKGROUND = DEFAULT_COLOR %}
+{% set DEFAULT_PADDING = '20px 30px' %}
 
 {% if IS_HEADER == true %}
     {% set CARD_BACKGROUND = HEADER_COLOR %}
+    {% set DEFAULT_PADDING = '10px 30px' %}
 {% endif %}
 
 {% if IS_FOOTER == true %}
@@ -18,12 +20,9 @@
         </tr>
     </table>
 {% endif %}
-<table style="
-        width:100%;
-        background-color:  {{ CARD_BACKGROUND }};
-        ">
+<table style="width:100%; background-color: {{ CARD_BACKGROUND }};">
     <tr>
-        <td class="uiCard">
+        <td style="padding: {{ DEFAULT_PADDING }};">
             {% block CONTENT %} {% endblock %}
         </td>
     </tr>

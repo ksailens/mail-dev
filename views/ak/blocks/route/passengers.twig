@@ -1,40 +1,27 @@
-<table class="desktop" style="width: 100%; font-size: 14px;">
+<table style="width: 100%; font-size: 14px;">
     {% for passanger in passengers %}
         <tr>
-            <td style="font-weight: 600; width: 60px;">Тариф:</td>
             <td>
-                {% if passanger.fareFamily_name %}
-                    {{ passanger.fareFamily_name }}
-                {% else %}
-                    {{ passanger.tariff_type }}
-                {% endif %}
-            </td>
-            <td style="font-weight: 600; width: 90px;">Пассажир:</td>
-            <td>{{ passanger.last_name ~ ' ' ~ passanger.first_name ~ ' (' ~ passanger.type.title|lower ~ ')' }}</td>
-        </tr>
-    {% endfor %}
-</table>
-
-<table class="mobile" style="width: 100%; font-size: 14px;">
-    {% for passanger in passengers %}
-        <tr>
-            <td style="font-weight: 600; width: 60px;">Тариф:</td>
-            <td>
-                {% if passanger.fareFamily_name %}
-                    {{ passanger.fareFamily_name }}
-                {% else %}
-                    {{ passanger.tariff_type }}
-                {% endif %}
+                <table align="left" style="width: 250px; margin-bottom: 5px;">
+                    <tr>
+                        <td style="font-weight: 600; width: 60px;">Тариф:</td>
+                        <td>
+                            {% if passanger.fareFamily_name %}
+                                {{ passanger.fareFamily_name }}
+                            {% else %}
+                                {{ passanger.tariff_type }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr><td> </td></tr>
+                </table>
+                <table align="left" style="margin-bottom: 5px;">
+                    <tr>
+                        <td style="font-weight: 600; width: 90px;">Пассажир:</td>
+                        <td>{{ passanger.last_name ~ ' ' ~ passanger.first_name ~ ' (' ~ passanger.type.title|lower ~ ')' }}</td>
+                    </tr>
+                </table>
             </td>
         </tr>
-        <tr>
-            <td style="font-weight: 600; width: 90px;">Пассажир:</td>
-            <td>{{ passanger.last_name ~ ' ' ~ passanger.first_name ~ ' (' ~ passanger.type.title|lower ~ ')' }}</td>
-        </tr>
-        {% if loop.index != passengers|length %}
-            <tr>
-                <td>&nbsp;</td>
-            </tr>
-        {% endif %}
     {% endfor %}
 </table>

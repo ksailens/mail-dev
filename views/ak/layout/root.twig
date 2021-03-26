@@ -6,8 +6,7 @@
     <title>
 
     </title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"
-          type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700' rel='stylesheet' type='text/css'>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
@@ -44,62 +43,11 @@
         }
 
         p {
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
             color: #181f34;
             font-size: 14px;
-        }
-
-        .uiCard {
-            padding:20px 30px;
-        }
-
-        .rowDesktop {
-            display: table-row;
-            visibility: visible;
-        }
-
-        .mobile {
-            display: none !important;
-            visibility: collapse;
-        }
-
-        .desktop {
-            display: table;
-            visibility: visible;
-        }
-
-        .rowMobile {
-            visibility: collapse;
-            display: none !important;
-        }
-
-        @media only screen and (max-width: 480px) {
-            *[class].desktopLink {
-                display: none !important;
-                visibility: collapse !important;
-            }
-
-            *[class].uiCard {
-                padding:20px 15px !important;
-            }
-
-            *[class].rowDesktop {
-                display: none !important;
-                visibility: collapse !important;
-            }
-
-            *[class].rowMobile {
-                display: table-row !important;
-                visibility: visible !important;
-            }
-
-            *[class].mobile {
-                display: table !important;
-                visibility: visible !important;
-            }
-            *[class].desktop {
-                display: none !important;
-                visibility: collapse !important;
-            }
+            margin: 0;
+            line-height: 1.5;
         }
 
     </style>

@@ -47,31 +47,7 @@
                     } %}
                 {% endif %}
                 <table style="width: 100%; font-size: 14px;">
-                    <tr class="rowDesktop">
-                        <td style="font-weight: bold">
-                            {% if SEGMENT.date_dep == SEGMENT.date_arr %}
-                                {{ SEGMENT.date_dep|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_dep|date("m")] ~ ' ' ~ SEGMENT.date_dep|date("Y")}}:
-                                {% else %}
-                                    {% if SEGMENT.date_dep|date("Y") == SEGMENT.date_arr|date("Y") %}
-                                        {% if SEGMENT.date_dep|date("m") == SEGMENT.date_arr|date("m") %}
-                                                {{ SEGMENT.date_dep|date("d") ~ ' - ' ~ SEGMENT.date_arr|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_arr|date("m")] ~ ' ' ~ SEGMENT.date_arr|date("Y")}}:
-                                            {% else %}
-                                                {{ SEGMENT.date_dep|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_dep|date("m")] ~ ' - ' ~ SEGMENT.date_arr|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_arr|date("m")] ~ ' ' ~ SEGMENT.date_arr|date("Y")}}:
-                                        {% endif %}
-                                    {% else %}
-                                        {{ SEGMENT.date_dep|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_dep|date("m")] ~ ' ' ~ SEGMENT.date_dep|date("Y") ~ ' - ' ~ SEGMENT.date_arr|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_arr|date("m")] ~ ' ' ~ SEGMENT.date_arr|date("Y")}}:
-                                    {% endif %}
-                            {% endif %}
-                            {{ SEGMENT.city_dep ~ ' - ' ~ SEGMENT.city_arr }}
-                        </td>
-                        <td style="text-align: right;">
-                            {% for segment in route %}
-                                {{ segment.carrier_title ~ ', ' ~ segment.carrier_code ~ '-' ~ segment.flight_number }}{{ (loop.index != route|length) ? ';' : '' }}
-                            {% endfor %}
-                        </td>
-                    </tr>
-
-                    <tr class="rowMobile">
+                    <tr>
                         <td style="font-weight: bold">
                             {% if SEGMENT.date_dep == SEGMENT.date_arr %}
                                 {{ SEGMENT.date_dep|date("d") ~ ' ' ~ MONTHS[SEGMENT.date_dep|date("m")] ~ ' ' ~ SEGMENT.date_dep|date("Y")}}:
@@ -88,21 +64,18 @@
                             {% endif %}
                             {{ SEGMENT.city_dep ~ ' - ' ~ SEGMENT.city_arr }}
                         </td>
-                    </tr>
-                    <tr class="rowMobile">
-                        <td>
+                        <td style="text-align: right;">
                             {% for segment in route %}
                                 {{ segment.carrier_title ~ ', ' ~ segment.carrier_code ~ '-' ~ segment.flight_number }}{{ (loop.index != route|length) ? ';' : '' }}
                             {% endfor %}
                         </td>
                     </tr>
-
                     <tr><td>&nbsp;</td></tr>
                     {% for segment in route %}
                         {% if (route|length > 1 and loop.index != 1) %}
                             <tr>
                                 <td colspan="2">
-                                    <p style="color: #5c6f80; margin-bottom: 0">
+                                    <p style="color: #5c6f80; margin: 15px 0;">
                                         {{ 'Пересадка в '}}{{ segment.air_dep_title == segment.dep_city ? (segment.air_dep_title ~ ', ' ~ segment.country_dep) : (segment.air_dep_title ~ ', ' ~ segment.dep_city ~ ', ' ~ segment.country_dep) }}
                                     </p>
                                 </td>
@@ -110,7 +83,7 @@
                         {% endif %}
                         <tr>
                             <td colspan="2">
-                                <p style="margin-bottom: 0">
+                                <p style="margin-bottom: 15px;">
                                     <span style="padding-right: 30px;">{{ segment.time_dep }}</span>
                                     <span>{{ segment.air_dep_title == segment.dep_city ? segment.air_dep_title : segment.dep_city ~ ', ' ~ segment.air_dep_title }}</span>
                                 </p>
@@ -118,7 +91,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <p style="margin-bottom: 0">
+                                <p>
                                     <span style="padding-right: 30px;">{{ segment.time_arr }}</span>
                                     <span>{{ segment.air_arr_title == segment.arr_city ? segment.air_arr_title : segment.arr_city ~ ', ' ~ segment.air_arr_title }}</span>
                                 </p>

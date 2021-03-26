@@ -154,6 +154,29 @@ const booking_dump_ak = {
         stops:{},
         supplier_code: "DP",
         baggage: "1P10K"
+      },
+      {
+        air_dep_title: "Внуково",
+        air_arr_title: "Краснодар",
+        dep_city: "Москва",
+        arr_city: "Краснодар",
+        airport_dep_code: "VKO",
+        airport_arr_code: "KRR",
+        time_dep: "09:00",
+        time_arr: "11:10",
+        date_dep: "31.01.2021",
+        date_arr: "01.02.2021",
+        country_dep: "Россия",
+        country_arr: "Россия",
+        date_dep_formated: "31 января 2021",
+        date_arr_formated: "01 февраля 2021",
+        carrier_code: "DP",
+        carrier_title: "Pobeda",
+        flight_number: "155",
+        aircraft: "",
+        stops:{},
+        supplier_code: "DP",
+        baggage: "1P10K"
       }
     ],
     [
@@ -244,9 +267,11 @@ const booking_dump_ak = {
       taxes: 3000,
       fees: 2500
     },
-    insurances: 0,
+    insurances: 123,
     additional_services: {
-      total: 1
+      total: 1,
+      aeroexpress: 123,
+      FlightChangesNotification: 64564
     }
   },
   promo: {},
@@ -272,7 +297,7 @@ var transporter = nodemailer.createTransport({
 
 var mailOptions = {
   from: 'ksailens@yandex.ru',
-  to: 'arkadiygertsovskiy@gmail.com',
+  to: 'ksailens@yandex.ru',
   subject: 'Sending Email using Node.js'
 };
 
