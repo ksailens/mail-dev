@@ -1,3 +1,8 @@
+{% set LK_LINK = 'https://www.aviakassa.com/account/' %}
+{% if lkLink %}
+    {% set LK_LINK = lkLink %}
+{% endif %}
+
 {% embed '../../ui/card/card.twig' %}
     {% block CONTENT %}
         <table style="width: 100%;">
@@ -18,7 +23,7 @@
                     <table align="right">
                         <tr>
                             <td>
-                                <a href="https://www.aviakassa.com/account/" style="border:none;text-decoration:none;color: #fff;font-size: 13px;padding-right: 24px;" target="_blank">
+                                <a href="{{ LK_LINK }}" style="border:none;text-decoration:none;color: #fff;font-size: 13px;padding-right: 24px;" target="_blank">
                                     Мой кабинет
                                 </a>
                             </td>

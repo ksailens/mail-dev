@@ -277,6 +277,7 @@ const booking_dump_ak = {
   promo: {},
   payLink: "https://www.aviakassa.ru/avia/checkout/AKV4TESTOWE1000000090VKOKZN20210216/TUA.DP.0.525.P0..-10.DP.155.KRR.202102161110.VKO.202102160900.0.OPROMO.130.0.TUA.0.1P10K_10.DP.567.KZN.202102161745.KRR.202102161520.0.OPROMO.145.0.TUA.0.1P10K/1252019374~748a5ab08f9ac400ba6d26006397416156878639",
   feedbackLink: "http://s2.actr-aviakassa-site.actr-front.deac/?showFeedbackForm=1&billing=1252019374&lang=ru",
+  lkLink: "http://s2.ak-front-apps.actr-front.deac/",
   aeroexpress: {}
 }
 
@@ -357,4 +358,4 @@ app.get('/sendEmail', function (req, res) {
   });
 });
 
-app.listen(3001);
+app.listen(3042);
