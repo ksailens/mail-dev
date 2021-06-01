@@ -282,6 +282,51 @@ const booking_dump_ak = {
   aeroexpress: {}
 }
 
+const getSleepMail = {
+  feedback_link: "http://s2.actr-aviakassa-site.actr-front.deac/?showFeedbackForm=1&billing=1252019374&lang=ru",
+  lk_link: "http://s2.ak-front-apps.actr-front.deac/",
+  domain: "http://s2.actr-aviakassa-site.actr-front.deac/",
+  airport_name: "Домодедово", // русское название аэропорта
+  dates: { // даты проживания в отеле
+    check_in_date: "14.05.2021", // дата заезда
+    check_in_time: "22:30", // время заезда
+    check_out_date: "15.05.2021", // дата выезда (пустая строка, если равна дате заезда)
+    check_out_time: "02:30" // время выезда
+  },
+  categories: [
+    {
+      category_name: "Верхняя двухместная капсула", // имя категории
+      category_count: 2, // количество номеров
+      terminal_name: "D", // имя терминала
+      is_sterile_zone: true
+    },
+    {
+      category_name: "Нижняя одноместная капсула", // имя категории
+      category_count: 1, // количество номеров
+      terminal_name: "D", // имя терминала
+      is_sterile_zone: false
+    }
+  ],
+  tickets_owner_name: "Борисов Алексей Иванович"
+}
+
+const getSleepVoucher = {
+  domain: "http://s2.actr-aviakassa-site.actr-front.deac/", // домен
+  dates: { // даты проживания в отеле
+    check_in_date: "14.05.2021", // дата заезда
+    check_in_time: "22:30", // время заезда
+  },
+  category_name: "Верхняя двухместная капсула", // имя категории
+  category_count: 2, // количество номеров
+  terminal_name: "D", // имя терминала
+  is_sterile_zone: true,
+  tickets_owner_name: "Борисов Алексей Иванович",
+  hotel_info: {
+    hotel_phone: "+7-999-123-123-23",
+    hotel_address: "Аэропорт Шереметьево, терминал D, 3 этаж, зал международных вылетов, рядом с Zone 51"
+  }
+}
+
 var transporter = nodemailer.createTransport({
   // service: 'gmail',
   host: 'smtp.yandex.ru',
@@ -335,6 +380,12 @@ app.get('/iraero_recover', function (req, res) {
 
 app.get('/iraero_restore', function (req, res) {
   res.render('iraero_restore.twig', booking_dumb);
+});
+app.get('/get_sleep_mail', function (req, res) {
+  res.render('get_sleep_mail.twig', getSleepMail);
+});
+app.get('/get_sleep_voucher', function (req, res) {
+  res.render('get_sleep_voucher.twig', getSleepVoucher);
 });
 
 app.get('/sendEmail', function (req, res) {

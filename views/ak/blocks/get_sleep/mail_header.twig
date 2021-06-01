@@ -1,0 +1,29 @@
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <p style="
+                      height: 24px;
+                      font-size: 20px;
+                      font-weight: 600;
+                      text-align: center;
+                      margin-top: 20px;
+                      margin-bottom: 30px;
+                      color: #181f34;"
+                    >Отель на время пересадки успешно забронирован!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="line-height: 1.5; margin-bottom: 24px; text-align: justify;">
+                        {{ 'Вами была забронирована услуга размещения в отеле на время пересадки в аэропорту Шереметьево ' ~ dates.check_in_date ~ 'г. ' ~ 'с ' ~ dates.check_in_time ~ ' до '}}
+                        {{ dates.check_out_date ? (dates.check_out_date ~ 'г. ') : '' }}
+                        {{ dates.check_out_time }}
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    {% endblock %}
+{% endembed %}

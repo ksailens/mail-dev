@@ -1,0 +1,27 @@
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%; font-size: 14px;">
+            <tr style="font-size: 16px; font-weight: 600;">
+                <td>Расположение, категория номера</td>
+                <td style="text-align: right; padding-bottom: 15px;">Кол-во номеров:</td>
+            </tr>
+            {% for category in categories %}
+                <tr>
+                    <td>
+                        {{ '- ' ~ category.terminal_name }},
+                        {{ category.is_sterile_zone ? 'стерильная зона' : 'нестерильная зона' }},
+                        {{ category.category_name }}
+                    </td>
+                    <td style="text-align: right">{{ category.category_count }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td style="padding-top: 15px">Бронирование оформлено на:</td>
+                <td style="text-align: right">{{ tickets_owner_name }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding-top: 15px">Ваучеры Вы можете найти в приложении к письму</td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}
