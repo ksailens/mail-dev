@@ -298,12 +298,14 @@ const getSleepMail = {
       category_name: "Верхняя двухместная капсула", // имя категории
       category_count: 2, // количество номеров
       terminal_name: "D", // имя терминала
+      hotel_name: "Терминал D",
       is_sterile_zone: true
     },
     {
       category_name: "Нижняя одноместная капсула", // имя категории
       category_count: 1, // количество номеров
       terminal_name: "D", // имя терминала
+      hotel_name: "Зона Аэроэкспресса",
       is_sterile_zone: false
     }
   ],
@@ -315,10 +317,12 @@ const getSleepVoucher = {
   dates: { // даты проживания в отеле
     check_in_date: "14.05.2021", // дата заезда
     check_in_time: "22:30", // время заезда
+    reserved_hours: 3
   },
   category_name: "Верхняя двухместная капсула", // имя категории
   category_count: 2, // количество номеров
-  terminal_name: "D", // имя терминала
+  terminal_name: "", // имя терминала
+  hotel_name: "Терминал D",
   is_sterile_zone: true,
   tickets_owner_name: "Борисов Алексей Иванович",
   hotel_info: {

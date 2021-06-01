@@ -1,0 +1,121 @@
+{% set AK_LOGO = 'https://s.aviakassa.ru/images/logo-ak.png' %}
+{% set GET_SLEEP_LOGO = 'https://s.aviakassa.ru/images/get_sleep_logo.png' %}
+{% set MAP_TERMINAL = 'https://s.aviakassa.ru/docs/gettsleep/gett_sleep_sheremetyevo_airport_international_transit_area.jpg' %}
+{% set MAP_AERO = 'https://s.aviakassa.ru/docs/gettsleep/gett_sleep_sheremetyevo_airport_terminal_aeroexpress.jpg' %}
+
+{% embed '../../ui/card/card.twig' %}
+    {% block CONTENT %}
+        <table style="width: 100%; border-bottom: 2px solid black;">
+            <tr>
+                <td style="padding-bottom: 15px;">
+                    <img width="179" height="29" alt="Aviakassa" src="{{ AK_LOGO }}"/>
+                </td>
+                <td style="text-align: right">
+                    <img width="179" height="29" alt="GetSleep" src="{{ GET_SLEEP_LOGO }}"/>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="2"
+                    style="
+                        padding-top: 30px;
+                        padding-bottom: 40px;
+                        font-size: 24px;
+                        font-weight: 600;
+                        text-align: center;">
+                    Отель на время пересадки
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"
+                    style="
+                        padding-bottom: 15px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        text-align: center;">
+                    Данные по заказу:
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa">
+                <td>Дата заезда</td>
+                <td style="text-align: right;">
+                    {{ dates.check_in_date }}
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa">
+                <td>Время заезда</td>
+                <td style="text-align: right;">
+                    {{ dates.check_in_time }}
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa">
+                <td>Кол-во часов</td>
+                <td style="text-align: right;">
+                    {{ dates.reserved_hours }}
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa">
+                <td>Зона расположения отеля</td>
+                <td style="text-align: right;">
+                    {{ is_sterile_zone ? 'стерильная зона' : 'нестерильная зона' }}
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa">
+                <td>Категория номера</td>
+                <td style="text-align: right;">
+                    {{ category_name }}
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa; border-bottom: 1px solid #aaa">
+                <td>Кол-во номеров</td>
+                <td style="text-align: right;">
+                    {{ category_count }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"
+                    style="
+                        padding-bottom: 15px;
+                        padding-top: 45px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        text-align: center;">
+                    Оформлено на гостя:
+                </td>
+            </tr>
+            <tr style="height: 45px; border-top: 1px solid #aaa; border-bottom: 1px solid #aaa">
+                <td>ФИО</td>
+                <td style="text-align: right;">
+                    {{ tickets_owner_name }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"
+                    style="
+                        padding-bottom: 15px;
+                        padding-top: 45px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        text-align: center;">
+                    Контактные данные и адрес отеля:
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {{ hotel_info.hotel_phone }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {{ hotel_info.hotel_address }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img width="720" src="{{ terminal_name ? MAP_TERMINAL : MAP_AERO }}" alt="HotelMap">
+                </td>
+            </tr>
+        </table>
+    {% endblock %}
+{% endembed %}
