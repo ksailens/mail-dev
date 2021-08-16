@@ -1,11 +1,11 @@
-{% set WHITE_LOGO = 'https://s.aviakassa.ru/images/svg/aviakassa_logo.svg' %}
-{% set DARK_LOGO = 'https://s.aviakassa.ru/images/logo-ak.png' %}
-{% set LINK_IMG = WHITE_LOGO %}
+{#{% set WHITE_LOGO = 'https://s.aviakassa.ru/images/logo-ak-v2-white.png' %}#}
+{#{% set DARK_LOGO = 'https://s.aviakassa.ru/images/logo-ak-v2-dark.png' %}#}
+{#{% set LINK_IMG = WHITE_LOGO %}#}
 
-{% if IS_FOOTER == true %}
-    {% set LINK_IMG = DARK_LOGO %}
-{% endif %}
+{#{% if IS_FOOTER == true %}#}
+{#    {% set LINK_IMG = DARK_LOGO %}#}
+{#{% endif %}#}
 
 <a href="{{ domain }}" style="border-bottom:none;text-decoration:none" target="_blank">
-    <img width="117" height="35" alt="Aviakassa" src="{{ LINK_IMG }}"/>
+    <img width="{{ logo_width }}" height="{{ logo_height }}" alt="Aviakassa" src="{{ logo_url }}"/>
 </a>

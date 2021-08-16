@@ -8,7 +8,11 @@
         <table style="width: 100%;">
             <tr>
                 <td>
-                    {% embed '../../ui/logo/default.twig' %}{% endembed %}
+                    {% embed '../../ui/logo/default.twig' with {
+                        logo_url: 'https://s.aviakassa.ru/images/logo-ak-v2-white.png',
+                        logo_width: '117',
+                        logo_height: '35'
+                    } %}{% endembed %}
                 </td>
                 <td style="text-align:right">
                     <table align="right">

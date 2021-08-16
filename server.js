@@ -309,7 +309,10 @@ const getSleepMail = {
       is_sterile_zone: false
     }
   ],
-  tickets_owner_name: "Борисов Алексей Иванович"
+  tickets_owner_name: "Борисов Алексей Иванович",
+  airport_hotel: {
+    price: 123
+  }
 }
 
 const getSleepVoucher = {

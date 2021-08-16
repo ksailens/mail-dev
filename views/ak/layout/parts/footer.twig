@@ -2,17 +2,21 @@
     {% block CONTENT %}
         <table style="width: 100% !important; min-width: 100% !important;">
             <tr>
-                <td style="text-align: center;">
-                    {% embed '../../ui/logo/default.twig' %}{% endembed %}
+                <td style="text-align: center; padding-top: 12px;">
+                    {% embed '../../ui/logo/default.twig' with {
+                        logo_url: 'https://s.aviakassa.ru/images/logo-ak-v2-dark.png',
+                        logo_width: '150',
+                        logo_height: '45'
+                    } %}{% endembed %}
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p style="text-align: center;">Благодарим за бронирование и желаем хорошего полета!</p>
+                    <p style="text-align: center; padding-top: 20px">Благодарим за бронирование и желаем хорошего полета!</p>
                 </td>
             </tr>
             <tr style="text-align:center;">
-                <td style="padding-top: 24px; font-size: 16px; font-weight: bold">
+                <td style="padding-top: 34px; padding-bottom: 30px; font-size: 16px; font-weight: 600">
                     {% embed '../../ui/button/button.twig' with {IS_CENTER: true} %}
                         {% block BUTTON_HREF %}{{ feedbackLink }}{% endblock %}
                         {% block BUTTON_LABEL %}{{ 'Связаться с нами' }}{% endblock %}
