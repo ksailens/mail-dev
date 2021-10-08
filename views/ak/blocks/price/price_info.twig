@@ -13,50 +13,59 @@
                 </td>
             </tr>
             <tr style="font-weight: 600;">
-                <td><p style="margin-bottom: 17px;">Авиабилеты</p></td>
-                <td style="text-align: right; width: 100px;">{{ prices.tickets.total ~ ' ₽' }}</td>
+                <td style="padding-bottom: 17px;"><p>Авиабилеты</p></td>
+                <td style="text-align: right; width: 100px; padding-bottom: 17px;">{{ prices.tickets.total ~ ' ₽' }}</td>
             </tr>
             <tr>
-                <td><p style="margin-bottom: 11px;">Тариф</p></td>
-                <td style="text-align: right;">{{ prices.tickets.tariff ~ ' ₽' }}</td>
+                <td style="padding-bottom: 11px;"><p>Тариф</p></td>
+                <td style="text-align: right; padding-bottom: 11px;">{{ prices.tickets.tariff ~ ' ₽' }}</td>
             </tr>
             <tr>
-                <td><p style="margin-bottom: 11px;">Таксы</p></td>
-                <td style="text-align: right;">{{ prices.tickets.taxes ~ ' ₽' }}</td>
+                <td style="padding-bottom: 11px;"><p>Таксы</p></td>
+                <td style="text-align: right; padding-bottom: 11px;">{{ prices.tickets.taxes ~ ' ₽' }}</td>
             </tr>
             <tr>
-                <td><p style="margin-bottom: 11px;">Сборы</p></td>
-                <td style="text-align: right;">{{ prices.tickets.fees ~ ' ₽' }}</td>
+                <td style="padding-bottom: 11px;"><p>Сборы</p></td>
+                <td style="text-align: right; padding-bottom: 11px;">{{ prices.tickets.fees ~ ' ₽' }}</td>
             </tr>
             {% if prices.insurances %}
                 <tr style="font-weight: 600;">
-                    <td><p style="margin: 23px 0;">Страхование</p></td>
-                    <td style="text-align: right;">{{ prices.insurances ~ ' ₽' }}</td>
+                    <td style="padding: 15px 0 15px;"><p>Страхование</p></td>
+                    <td style="text-align: right; padding: 15px 0 15px;">{{ prices.insurances ~ ' ₽' }}</td>
                 </tr>
+            {% endif %}
+
+            {% if prices.total_insurances is defined and prices.total_insurances is not empty %}
+                {% for insurance in prices.total_insurances %}
+                    <tr>
+                        <td style="padding-bottom: 11px;"><p>{{ insurance.title }}</p></td>
+                        <td style="text-align: right; padding-bottom: 11px;">{{ insurance.price ~ ' ₽' }}</td>
+                    </tr>
+                {% endfor %}
             {% endif %}
 
             {% if prices.additional_services is not empty %}
                 {% if prices.additional_services.total %}
                     <tr style="font-weight: 600;">
-                        <td><p style="margin-bottom: 17px;">Дополнительные услуги</p></td>
-                        <td style="text-align: right;">{{ prices.additional_services.total ~ ' ₽' }}</td>
+                        <td style="padding: 15px 0 15px;"><p>Дополнительные услуги</p></td>
+                        <td style="text-align: right; padding: 15px 0 15px;">{{ prices.additional_services.total ~ ' ₽' }}</td>
                     </tr>
                     {% if prices.additional_services.aeroexpress %}
                         <tr>
-                            <td><p style="margin-bottom: 11px;">Аэроэкспресс в аэропорт</p></td>
-                            <td style="text-align: right;">{{ prices.additional_services.aeroexpress ~ ' ₽' }}</td>
+                            <td style="padding-bottom: 11px;"><p>Аэроэкспресс в аэропорт</p></td>
+                            <td style="text-align: right; padding-bottom: 11px;">{{ prices.additional_services.aeroexpress ~ ' ₽' }}</td>
                         </tr>
                     {% endif %}
                     {% if prices.additional_services.FlightChangesNotification %}
                         <tr>
-                            <td><p style="margin-bottom: 11px;">Уведомления об отмене или переносе рейса</p></td>
-                            <td style="text-align: right;">{{ prices.additional_services.FlightChangesNotification ~ ' ₽' }}</td>
+                            <td style="padding-bottom: 11px;"><p>Уведомления об отмене или переносе рейса</p></td>
+                            <td style="text-align: right; padding-bottom: 11px;">{{ prices.additional_services.FlightChangesNotification ~ ' ₽' }}</td>
                         </tr>
                     {% endif %}
                     {% if prices.additional_services.GuaranteeReturnInCaseIllness %}
                         <tr>
-                            <td><p style="margin-bottom: 11px;">Гарантия возврата в случае болезни без сервисного сбора</p></td>
-                            <td style="text-align: right;">{{ prices.additional_services.GuaranteeReturnInCaseIllness ~ ' ₽' }}</td>
+                            <td style="padding-bottom: 11px;"><p>Гарантия возврата в случае болезни без сервисного сбора</p></td>
+                            <td style="text-align: right; padding-bottom: 11px;">{{ prices.additional_services.GuaranteeReturnInCaseIllness ~ ' ₽' }}</td>
                         </tr>
                     {% endif %}
                 {% endif %}

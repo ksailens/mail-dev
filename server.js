@@ -268,6 +268,63 @@ const booking_dump_ak = {
       fees: 2500
     },
     insurances: 123,
+    total_insurances: {
+      "trip_cancel_corona_virus":{
+        "code":"trip_cancel_corona_virus",
+        "title":"\u0422\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043d\u0430 \u041a\u043e\u0432\u0438\u0434 + \u041e\u0442\u043c\u0435\u043d\u0430 \u043f\u043e\u0435\u0437\u0434\u043a\u0438",
+        "price":8000
+      },
+      "returning_passengers_corona_virus":{
+        "code":"returning_passengers_corona_virus",
+        "title":"\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u043a\u0430 \u0434\u043b\u044f \u0432\u043e\u0437\u0432\u0440\u0430\u0449\u0430\u044e\u0449\u0438\u0445\u0441\u044f + \u0442\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043d\u0430 \u041a\u043e\u0432\u0438\u0434",
+        "price":4000
+      },
+      "anti_tick":{
+        "code":"anti_tick",
+        "title":"\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0410\u043d\u0442\u0438\u041a\u043b\u0435\u0449",
+        "price":80
+      },
+      "anti_tick_and_medical":{
+        "code":"anti_tick_and_medical",
+        "title":"\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0422\u0435\u043b\u0435\u043c\u0435\u0434\u0438\u0446\u0438\u043d\u0430 \u0410\u043d\u0442\u0438\u041a\u043b\u0435\u0449",
+        "price":700
+      },
+      "bank_card":{
+        "code":"bank_card",
+        "title":"\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u043a\u0430\u0440\u0442",
+        "price":299
+      },
+      "medical":{
+        "code":"medical",
+        "title":"\u041c\u0435\u0434\u0438\u0446\u0438\u043d\u0441\u043a\u043e\u0435 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u0433\u043e\u0432\u043e\u0440 \u043a\u0443\u043f\u0438\u0431\u0438\u043b\u0435\u0442",
+        "price":104
+      },
+      "flight":{
+        "code":"flight",
+        "title":"\u041f\u0430\u043a\u0435\u0442 \u043d\u0430 \u043f\u0435\u0440\u0435\u043b\u0435\u0442(akassa)",
+        "price":510
+      },
+      "corona_virus_monthly":{
+        "code":"corona_virus_monthly",
+        "title":"\u0421\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u043e\u0442 \u043a\u043e\u0440\u043e\u043d\u0430\u0432\u0438\u0440\u0443\u0441\u0430 \u043d\u0430 \u043c\u0435\u0441\u044f\u0446",
+        "price":2246
+      },
+      "sber_health_all_doctors_12_month":{
+        "code":"sber_health_all_doctors_12_month",
+        "title":"\u0412\u0441\u0435 \u0432\u0440\u0430\u0447\u0438 \u043e\u043d\u043b\u0430\u0439\u043d \u043d\u0430 12 \u043c\u0435\u0441\u044f\u0446\u0435\u0432",
+        "price":4000
+      },
+      "sber_health_all_doctors_1_month":{
+        "code":"sber_health_all_doctors_1_month",
+        "title":"\u0412\u0441\u0435 \u0432\u0440\u0430\u0447\u0438 \u043e\u043d\u043b\u0430\u0439\u043d \u043d\u0430 1 \u043c\u0435\u0441\u044f\u0446",
+        "price":1600
+      },
+      "sber_health_all_doctors_3_month":{
+        "code":"sber_health_all_doctors_3_month",
+        "title":"\u0412\u0441\u0435 \u0432\u0440\u0430\u0447\u0438 \u043e\u043d\u043b\u0430\u0439\u043d \u043d\u0430 3 \u043c\u0435\u0441\u044f\u0446\u0430",
+        "price":2200
+      }
+    },
     additional_services: {
       total: 1,
       aeroexpress: 123,
