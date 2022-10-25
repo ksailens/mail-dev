@@ -1,10 +1,12 @@
-<tr>
-  <td style="padding:0 24px 16px 24px">
-    <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">
-      Посмотреть полную информацию о бронировании можно в приложении Альфа-Банка ➔ сервис <b>Путешествия</b> ➔ раздел <b>Мои&nbsp;заказы.</b>
-    </p>
-  </td>
-</tr>
+{% if not ONLY_BUTTONS %}
+  <tr>
+    <td style="padding:0 24px 16px 24px">
+      <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0">
+        Посмотреть полную информацию о покупке можно в приложении Альфа-Банка &rarr;&nbsp;сервис <b>Путешествия</b> &rarr;&nbsp;раздел <b>Мои&nbsp;заказы.</b>
+      </p>
+    </td>
+  </tr>
+{% endif %}
 <tr>
   <td align="center" style="display:block;padding:16px;">
     <div style="border-radius:8px;background-color:#EF3124;padding:12px 20px;width:200px;white-space:nowrap;margin:0 auto 10px auto;">

@@ -1,0 +1,49 @@
+{% set PAGE_TITLE='Добавление документов' %}
+{% extends 'alfa-tour/alfa-email-wrapper.twig' %}
+
+{% block BODY %}
+    <tr>
+        <td align="center" valign="top">
+            <table width="100%" align="center" cellpadding="0" cellspacing="0" style="padding-top:20px"
+                   border="0" valign="top">
+                <tbody></tbody>
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                <tbody>
+                <tr>
+                    <td>
+                        <div style="display:none;max-height:0;overflow:hidden">К заказу {{ order.billing_number }} добавлены документы.</div>
+                        <div style="display:none;max-height:0;overflow:hidden">&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table style="width:100%;background-color:rgb(255, 255, 255);border-collapse:collapse;border-radius:6px;margin-top:20px;max-width:600px" align="center" cellpadding="0" cellspacing="0" border="0" valign="top">
+                <tbody>
+                {% embed 'alfa-tour/header-logo.twig' %}
+                {% endembed %}
+                <tr>
+                    <td style="padding:16px 24px">
+                        <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0;pointer-events:none;">
+{#                            {{ greeting(user_payer_name, lang) }}<br><br>#}
+                            Туроператор предоставил документы по вашему туру &mdash;&nbsp;мы добавили их во вложение к этому письму.
+                            <br><br>
+                            Пожалуйста, проверьте: <br>
+                            <span style="display: inline-block;width: 6px;height: 6px;background-color: #EF3124;border: 2px solid #fff;border-radius: 6px;"></span>
+                            свои личные данные <br>
+                            <span style="display: inline-block;width: 6px;height: 6px;background-color: #EF3124;border: 2px solid #fff;border-radius: 6px;"></span>
+                            отель, номер и тип питания.
+                            <br><br>
+                            Если нашли ошибку, напишите нам, чтобы мы могли всё быстро поправить.<br>
+                            Посмотреть полную информацию о туре можно в приложении Альфа-Банка &rarr;&nbsp;сервис <b>Путешествия</b> &rarr;&nbsp;<b>раздел Мои заказы.</b>
+                        </p>
+                    </td>
+                </tr>
+
+                {% embed 'alfa-tour/footer_buttons.twig' with {ONLY_BUTTONS: true} %}
+                {% endembed %}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+{% endblock %}

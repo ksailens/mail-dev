@@ -609,7 +609,7 @@ app.set('view cache', false);
 // });
 
 app.get('/', function (req, res) {
-  res.render('./alfa-tour/flight_changes.twig', tourData);
+  res.render('./alfa-tour/document_add.twig', tourData);
 });
 
 app.get('/booking_de', function (req, res) {
@@ -639,8 +639,7 @@ app.get('/get_sleep_voucher', function (req, res) {
 });
 
 app.get('/sendEmail', function (req, res) {
-
-  res.render(req.query.template, booking_dump_ak, function (err, html) {
+  res.render('./alfa-tour/document_add.twig', tourData, function (err, html) {
 
     console.log('sending email...');
     transporter.sendMail({
