@@ -1,0 +1,105 @@
+<tr>
+  <td style="padding:0 24px 16px 24px">
+    <table style="width:100%" cellpadding="0" cellspacing="0" border="0" align="left"
+           valign="top">
+      <tbody>
+      <tr>
+        <td align="left" style="background:#EF3124;padding:8px 16px;border-radius:7px 7px 0 0">
+          <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:400;line-height:16.8px;color:#fff;text-align:left;margin:0;padding:0;white-space:nowrap">Туристы<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:12px;font-weight:400;line-height:14px;color:rgba(255, 255, 255, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Tourists</span></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0 15px;display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;border-left:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);border-radius:0 0 7px 7px;padding-left:14px;padding-right:14px;padding-top:0;padding-bottom:16px">
+          <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+            <tbody>
+            {% for passenger in passengers %}
+              <tr>
+                <td style="display:flex;flex-wrap:wrap">
+                  <table style="min-width:180px;max-width:180px;height:min-content;padding-top:16px"
+                         cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                    <tbody>
+                    <tr>
+                      <td align="left" style="padding-bottom:16px;white-space:nowrap">
+                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Имя<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Name</span>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="display:flex;align-items:center"><p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0">{{ passenger.last_name }} {{ passenger.first_name }} {{ passenger.middle_name }}</p>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <table style="min-width:unset;max-width:180px;height:min-content;padding-top:16px;padding-right:36px"
+                         cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                    <tbody>
+                    <tr>
+                      <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Дата рождения<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap"><br />/Birthdate</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="display:flex;align-items:center"><span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;pointer-events:none;">{{ passenger.birthday }}</span>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <table style="min-width:unset;max-width:180px;height:min-content;padding-top:16px;padding-right:36px"
+                         cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                    <tbody>
+                    <tr>
+                      <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Номер документа<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap"><br />/Document number</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="display:flex;align-items:center"><span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;pointer-events:none;">{{ passenger.doc_num }}</span>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  {% if passenger.ticket_number is not null %}
+                    <table style="min-width:158px;max-width:180px;height:min-content;padding-top:16px;padding-right:0"
+                           cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                      <tbody>
+                      <tr>
+                        <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                          <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Номер билета<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap">/Ticket number</span></p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="display:flex;align-items:center">
+                          <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;pointer-events:none;">{{ passenger.ticket_number }}</span>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  {% endif %}
+                  {% if passenger.expired is defined and passenger.expired is not null %}
+                    <table style="min-width:43px;max-width:180px;height:min-content;padding-top:16px;padding-right:0"
+                           cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                      <tbody>
+                      <tr>
+                        <td align="left" style="padding-bottom:4px;white-space:nowrap">
+                          <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap">Действителен до<span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;white-space:nowrap"><br />/Valid until</span></p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="display:flex;align-items:center">
+                          <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;pointer-events:none;">{{ passenger.expired }}</span>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </td>
+</tr>

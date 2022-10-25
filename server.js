@@ -391,6 +391,188 @@ const getSleepVoucher = {
   }
 }
 
+const tourData = {
+  lang: 'ru',
+  base_src: null,
+  order: {
+    id: 283815,
+    created: '06.07.2022',
+    billing_number: 124102654,
+    currency: 'RUB',
+    status: 'Booked',
+    service_time_limit: '14:01 06.07.2022 MSK',
+    additionalProducts: [
+      {
+        title: 'Информирование об изменениях',
+        price: 140
+      },
+      {
+        title: 'Онлайн регистрация',
+        price: 240
+      }
+    ],
+    amount_total_sum: 6914
+  },
+  ticket: {
+    locator: 'VIWWMV',
+    carrier_name_ru: 'Аэрофлот - Российские авиалинии',
+    carrier_name_en: 'Aeroflot',
+    carrier_code: 'SU'
+  },
+  user_payer_name: 'Alex', // имя юзера, который забронировал заказ
+  tour: { // информация о туре
+    country: 'Россия', // страна
+    city: 'Севастополь', // город
+    date_from: '11.02.2023', // дата начала путешествия в формате DD.MM.YYYY
+    date_to: '21.02.2023', // дата окончания путешествия в формате DD.MM.YYYY
+    nights_count: 10, // кол-во ночей
+    hotel: 'SunCity', // название отеля
+    address: 'Севастополь, улица Большая Морская, 331', // адрес отеля
+    accommodation: '1 BDRM — апартаменты, 1 спальня', // тип номера
+    transfer: true, // наличие трансфера
+    meal_type: 'ВВ — завтрак шведский стол', // тип питания
+    extras: null, // доп.услуги
+  },
+  flights: [
+    {
+      air_dep_title: 'Пулково',
+      air_arr_title: 'Шереметьево',
+      airport_dep_code: 'LED',
+      airport_arr_code: 'SVO',
+      departure_city_title: 'Санкт-Петербург',
+      arrival_city_title: 'Москва',
+      departure_country_title: 'Россия',
+      arrival_country_title: 'Россия',
+      time_dep: '22:55',
+      time_arr: '00:25',
+      date_dep: '17.08.2022',
+      date_arr: '18.08.2022',
+      carrier_code: 'SU',
+      flight_number: 31,
+      class_code: 'e',
+      aircraft: 'Boeing 737-800 with winglets',
+      stops: [],
+      supplier_code: 'SU',
+      baggage: 'Без багажа',
+      change: 1,
+      terminal_dep: 1,
+      terminal_arr: 1,
+      duration_in_sec: '01ч 40 мин',
+      rulesFare: {
+        bag: 'Без багажа',
+        hbag: '1 место(а) 10KG',
+        changes: 'Возврат не доступен Обмен доступен со сбором'
+      }
+    },
+    {
+      air_dep_title: 'Пулково',
+      air_arr_title: 'Шереметьево',
+      airport_dep_code: 'LED',
+      airport_arr_code: 'SVO',
+      departure_city_title: 'Санкт-Петербург',
+      arrival_city_title: 'Москва',
+      departure_country_title: 'Россия',
+      arrival_country_title: 'Россия',
+      time_dep: '22:55',
+      time_arr: '00:25',
+      date_dep: '17.08.2022',
+      date_arr: '18.08.2022',
+      carrier_code: 'SU',
+      flight_number: 31,
+      class_code: 'e',
+      aircraft: 'Boeing 737-800 with winglets',
+      stops: [],
+      supplier_code: 'SU',
+      baggage: 'Без багажа',
+      change: 1,
+      terminal_dep: 1,
+      terminal_arr: 1,
+      duration_in_sec: '01ч 40 мин',
+      rulesFare: {
+        bag: 'Без багажа',
+        hbag: '1 место(а) 10KG',
+        changes: 'Возврат не доступен Обмен доступен со сбором'
+      }
+    },
+  ],
+  passengers: [
+    {
+      first_name: 'VIACHESLAV',
+      last_name: 'PANOV',
+      middle_name: '',
+      doc_num: '0404939098',
+      birthday: '06.07.1984',
+      expired: '16.07.2084',
+      ticket_number: null,
+      totalInsurances: {
+        alfa_flight: {
+          price: 270,
+          billing: 124102654,
+          url_blank: null
+        },
+        alfa_medical: {
+          price: 805,
+          billing: 124102654,
+          url_blank: null
+        },
+        alfa_trip_cancel: {
+          price: 250,
+          billing: 124102654,
+          url_blank: null
+        }
+      },
+      additionalServices: []
+    },
+    {
+      first_name: 'IANA',
+      last_name: 'PANOVA',
+      middle_name: '',
+      doc_num: 'VIИО261856',
+      birthday: '06.07.2014',
+      ticket_number: null,
+      totalInsurances: {
+        alfa_flight: {
+          price: 270,
+          billing: 124102654,
+          url_blank: null
+        },
+        alfa_medical: {
+          price: 805,
+          billing: 124102654,
+          url_blank: null
+        },
+        alfa_trip_cancel: {
+          price: 250,
+          billing: 124102654,
+          url_blank: null
+        }
+      },
+      additionalServices: []
+    },
+    {
+      first_name: 'IAROSLAVA',
+      last_name: 'PANOVA',
+      middle_name: 'VIACHESLAVOVNA',
+      doc_num: 'VXТЭ731326',
+      birthday: '06.05.2022',
+      ticket_number: null,
+      totalInsurances: [],
+      additionalServices: []
+    }
+  ],
+  promo: [],
+  pay_link: 'http://s0.alfafront.dev.ak4.deac/avia/checkout/ALFMAPBNOWE1110000090LEDMOW20220817/TUA.SU.0.90.P388400.NDCSU.-31.SU.31.SVO.202208180025.LED.202208172255.73H.RNORISL.90.0.TUA.0.0PC/124102654~f9d4764a1a2b3c66e561eb52347cb497f1b69a06',
+  feedback_link: 'http://s2.actr-alfabank-site.actr-front.deac/?showFeedbackForm=1&billing=124102654&lang=ru',
+  aeroexpress: [],
+  hotel_order_data: {
+    tickets: []
+  },
+  airport_hotel: null,
+  baseSrc: null,
+  payLink: 'http://s0.alfafront.dev.ak4.deac/avia/checkout/ALFMAPBNOWE1110000090LEDMOW20220817/TUA.SU.0.90.P388400.NDCSU.-31.SU.31.SVO.202208180025.LED.202208172255.73H.RNORISL.90.0.TUA.0.0PC/124102654~f9d4764a1a2b3c66e561eb52347cb497f1b69a06',
+  feedbackLink: 'http://s2.actr-alfabank-site.actr-front.deac/?showFeedbackForm=1&billing=124102654&lang=ru'
+}
+
 var transporter = nodemailer.createTransport({
   // service: 'gmail',
   host: 'smtp.yandex.ru',
@@ -421,9 +603,13 @@ app.set('view cache', false);
 // app.get('/', function (req, res) {
 //   res.render('./booking.twig', booking_dumb);
 // });
+//
+// app.get('/', function (req, res) {
+//   res.render('./ak_booking.twig', booking_dump_ak);
+// });
 
 app.get('/', function (req, res) {
-  res.render('./ak_booking.twig', booking_dump_ak);
+  res.render('./alfa-tour/flight_changes.twig', tourData);
 });
 
 app.get('/booking_de', function (req, res) {

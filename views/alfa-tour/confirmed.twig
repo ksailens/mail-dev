@@ -1,0 +1,61 @@
+{% set PAGE_TITLE='Подтверждение тура' %}
+{% extends 'alfa-tour/alfa-email-wrapper.twig' %}
+
+{% block BODY %}
+    <tr>
+        <td align="center" valign="top">
+            <table width="100%" align="center" cellpadding="0" cellspacing="0" style="padding-top:20px"
+                   border="0" valign="top">
+                <tbody></tbody>
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0" align="left" valign="top">
+                <tbody>
+                <tr>
+                    <td>
+                        <div style="display:none;max-height:0;overflow:hidden">Ваш заказ {{ order.billing_number }} подтвержден.</div>
+                        <div style="display:none;max-height:0;overflow:hidden">&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table style="width:100%;background-color:rgb(255, 255, 255);border-collapse:collapse;border-radius:6px;margin-top:20px;max-width:600px" align="center" cellpadding="0" cellspacing="0" border="0" valign="top">
+                <tbody>
+                {% embed 'alfa-tour/header-logo.twig' %}
+                {% endembed %}
+                <tr>
+                    <td style="padding:16px 24px">
+                        <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0;pointer-events:none;">
+{#                            {{ greeting(user_payer_name, lang) }}<br><br>#}
+                            Ваше путешествие подтверждено туроператором. <br>
+                            {#TODO дата#}
+                            Документы по заказу будут готовы [дата] &mdash;&nbsp;мы отправим их на вашу почту. <br>
+                            Посмотреть полную информацию о бронировании можно в приложении Альфа-Банка &rarr;&nbsp;сервис <b>Путешествия</b> &rarr;&nbsp;раздел <b>Мои&nbsp;заказы.</b>
+                        </p>
+                    </td>
+                </tr>
+                {% embed 'alfa-tour/vacation_spot.twig' %}
+                {% endembed %}
+
+                {% if passengers is defined %}
+                    {% embed 'alfa-tour/tourists.twig' %}
+                    {% endembed %}
+                {% endif %}
+
+                {% embed 'alfa-tour/hotel.twig' %}
+                {% endembed %}
+
+                {% if flights is defined %}
+                    {% embed 'alfa-tour/flights.twig' %}
+                    {% endembed %}
+                {% endif %}
+
+                {% embed 'alfa-tour/footer_buttons.twig' %}
+                {% endembed %}
+
+                {% embed 'alfa-tour/signature.twig' %}
+                {% endembed %}
+                </tbody>
+            </table>
+        </td>
+    </tr>
+{% endblock %}
