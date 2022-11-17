@@ -12,11 +12,13 @@
         <td style="padding:0 14px 16px 14px;border-left:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);border-right:1px solid rgba(0, 0, 0, 0.1);border-radius:0 0 7px 7px;">
           <table style="border-collapse: collapse;width: 100%;margin:0;padding:0;" border="0" cellpadding="0" cellspacing="0">
             <tbody>
-            {% for flight in flights %}
+            {% for one in flight %}
               <tr>
                 <td style="padding-top:16px;">
                   <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:10px;font-weight:400;line-height:12px;color:#000;text-align:left;margin:0;padding:0;white-space:nowrap">
-                    {{ flight.departure_city_title }} &rarr; {{ flight.arrival_city_title }}
+                    {{ loop.index == 1 ? tour.city_from : tour.destination_country ~ ', ' ~ tour.destination }}
+                    &nbsp;&rarr;&nbsp;
+                    {{ loop.index == 1 ? tour.destination_country ~ ', ' ~ tour.destination : tour.city_from }}
                   </p>
                 </td>
               </tr>
@@ -37,29 +39,22 @@
                         <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
                           <tr>
                             <td valign="middle">
-                              <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;pointer-events:none;">
-                                {{ ticket.carrier_code }}-{{ flight.flight_number }}
-                              </p>
+                              <img alt="avia-company" src="https://s.aviakassa.ru/suppliers_redesign/square_100x100/{{ one.carrier_code }}.png"
+                                   width="18" height="18" style="display:block;outline:none;border:none;text-decoration:none;object-fit:cover;object-position:left">
                             </td>
                             <td valign="middle">
-                              <img alt="avia-company" src="https://s.aviakassa.ru/suppliers_redesign/square_100x100/{{ flight.supplier_code }}.png"
-                                   width="18" height="18" style="display:block;outline:none;border:none;text-decoration:none;margin-left:8px;object-fit:cover;object-position:left">
+                              <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0 0 0 8px;padding:0;white-space:nowrap;pointer-events:none;">
+                                {{ one.flight_number | replace({ ' ': '-' }) }}
+                              </p>
                             </td>
                           </tr>
                         </table>
                       </td>
                     </tr>
-                    <tr>
-                      <td style="padding-top:10px;max-width:90px">
-                        <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:rgba(0, 0, 0, 0.4);text-align:left;margin:0;padding:0;">
-{#                          а/к {{ ticket.carrier_name_en }} <br>{{ flight.aircraft }}<br>В пути {{ flight.duration_in_sec | formatFlightDuration(lang) }}#}
-                        </p>
-                      </td>
-                    </tr>
                     </tbody>
                   </table>
                 </td>
-                <td align="center" valign="top" style="padding-right:60px">
+                <td align="center" valign="top" style="padding-right:50px">
                   <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
                     <tbody>
                     <tr>
@@ -82,8 +77,8 @@
                                 <tr>
                                   <td>
                                     <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;">
-                                      <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#ffffff;background-color:#EF3124;text-align:center;text-transform:uppercase;margin:0;padding:0 8px 1px 9px;border-radius:2px;">{{ flight.airport_dep_code }}</span>
-                                      <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">{{ flight.time_dep }}</span>
+                                      <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#ffffff;background-color:#EF3124;text-align:center;text-transform:uppercase;margin:0;padding:0 8px 1px 9px;border-radius:2px;">{{ one.departure.airport.code }}</span>
+                                      <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">{{ one.departure.datetime.time }}</span>
                                     </p>
                                   </td>
                                   <td>
@@ -99,12 +94,10 @@
                           <tr>
                             <td style="padding-top:10px;max-width:90px">
                               <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:500;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0;white-space:nowrap;">
-{#                                {{ flight.date_dep | formatFlightDate() }}#}
+{#                                {{ one.departure.datetime.date | formatFlightDate() }}#}
                               </p>
                               <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">
-                                {% if flight.air_dep_title is not empty %} {{ flight.air_dep_title }}{% else %}&nbsp;{% endif %}
-                                <br>
-                                {% if flight.terminal_dep is not empty %}Терминал&nbsp;{{ flight.terminal_dep }}{% else %}&nbsp;{% endif %}
+                                {% if one.departure.airport.title is not empty %} {{ one.departure.airport.title }}{% else %}&nbsp;{% endif %}
                               </p>
                             </td>
                           </tr>
@@ -123,18 +116,18 @@
                           <tr>
                             <td style="display:flex;align-items:center">
                               <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap;">
-                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#ffffff;background-color:#EF3124;text-align:center;text-transform:uppercase;margin:0;padding:0 8px 1px 9px;border-radius:2px;">{{ flight.airport_arr_code }}</span>
-                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">{{ flight.time_arr }}</span>
+                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#ffffff;background-color:#EF3124;text-align:center;text-transform:uppercase;margin:0;padding:0 8px 1px 9px;border-radius:2px;">{{ one.arrival.airport.code}}</span>
+                                <span style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:14px;font-weight:500;line-height:16.8px;color:#0b1f35;text-align:left;text-transform:uppercase;margin:0;padding:0;white-space:nowrap">{{ one.arrival.datetime.time }}</span>
                               </p>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top:10px;max-width:90px">
-{#                              <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:500;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">{{ flight.date_arr | formatFlightDate() }}</p>#}
+                              <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:500;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">
+{#                                {{ one.arrival.datetime.date | formatFlightDate() }}#}
+                              </p>
                               <p style="font-family:'Styrene B LC', Helvetica, 'Open Sans', Arial, Verdana;font-size:8px;font-weight:400;line-height:10px;color:#0b1f35;text-align:left;margin:0;padding:0">
-                                {% if flight.air_arr_title is not empty %} {{ flight.air_arr_title }}{% else %}&nbsp;{% endif %}
-                                <br>
-                                {% if flight.terminal_arr is not empty %}Терминал&nbsp;{{ flight.terminal_arr }}{% else %}&nbsp;{% endif %}
+                                {% if one.arrival.airport.title is not empty %} {{ one.arrival.airport.title }}{% else %}&nbsp;{% endif %}
                               </p>
                             </td>
                           </tr>

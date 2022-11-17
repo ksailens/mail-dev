@@ -25,13 +25,13 @@
         <tr>
           <td style="padding:16px 24px">
             <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0;pointer-events:none;">
-              {#                            {{ greeting(user_payer_name, lang) }}<br><br>#}
+              {#                            {{ greeting(user_full_name, lang) }}<br><br>#}
               Обратите внимание: ваш рейс был изменён авиакомпанией.<br>
               Ознакомьтесь с новой информацией о перелёте в вашем заказе, чтобы путешествие прошло без проблем.
             </p>
           </td>
         </tr>
-        {% if flights is defined %}
+        {% if flight is defined %}
           {% embed 'alfa-tour/flights.twig' %}
           {% endembed %}
         {% endif %}

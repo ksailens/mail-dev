@@ -25,10 +25,9 @@
                 <tr>
                     <td style="padding:16px 24px">
                         <p style="font-family:BlinkMacSystemFont, -apple-system, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#0b1f35;-webkit-font-smoothing:antialiased;word-wrap:break-word;text-align:left;margin:0;padding:0;pointer-events:none;">
-{#                            {{ greeting(user_payer_name, lang) }}<br><br>#}
+{#                            {{ greeting(user_full_name, lang) }}<br><br>#}
                             Ваше путешествие подтверждено туроператором. <br>
-                            {#TODO дата#}
-                            Документы по заказу будут готовы [дата] &mdash;&nbsp;мы отправим их на вашу почту. <br>
+                            Документы по заказу будут направлены вам на почту по их готовности. <br>
                             Посмотреть полную информацию о бронировании можно в приложении Альфа-Банка &rarr;&nbsp;сервис <b>Путешествия</b> &rarr;&nbsp;раздел <b>Мои&nbsp;заказы.</b>
                         </p>
                     </td>
@@ -44,7 +43,7 @@
                 {% embed 'alfa-tour/hotel.twig' %}
                 {% endembed %}
 
-                {% if flights is defined %}
+                {% if flight is defined %}
                     {% embed 'alfa-tour/flights.twig' %}
                     {% endembed %}
                 {% endif %}

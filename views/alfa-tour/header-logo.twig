@@ -1,3 +1,10 @@
+{% set MAIN_LOGO = 'https://www.aviakassa.com/cms/image/static/alfa-email/tour-hero.jpg' %}
+{% set CANCEL_LOGO = 'https://www.aviakassa.com/cms/image/static/alfa-email/tour-hero-cancel.jpg' %}
+{% set LINK_IMG = MAIN_LOGO %}
+{% if IS_CANCEL == true %}
+  {% set LINK_IMG = CANCEL_LOGO %}
+{% endif %}
+
 <tr>
   <td align="center" style="padding:24px">
     <a href="https://travel.alfabank.ru/" target="_blank" style="text-decoration:underline">
@@ -7,6 +14,6 @@
 </tr>
 <tr>
   <td>
-    <img alt="alfabank-hero-image" src="https://www.aviakassa.com/cms/image/static/alfa-email/avia-hero.jpg" style="display:block;outline:none;border:none;text-decoration:none;width:100%;height:auto">
+    <img alt="alfabank-hero-image" style="display:block;outline:none;border:none;text-decoration:none;width:100%;height:auto" src={{ LINK_IMG }} >
   </td>
 </tr>
