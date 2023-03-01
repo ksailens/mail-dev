@@ -1,0 +1,108 @@
+{
+  "lang": "ru",
+  "order": {
+    "id": 293915,
+    "created": "10.11.2022",
+    "billing_number": 6117,
+    "amount_total_sum": 61317,
+    "currency": "RUB",
+    "status": "Paid",
+    "service_time_limit": "17:33 11.11.2022 MSK",
+    "additionalProducts": []
+  },
+  "flight": [
+    {
+      "departure": {
+        "airport": {
+          "title": "\u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e",
+          "code": "DME"
+        },
+        "datetime": {
+          "date": "19.01.2023",
+          "time": "14:25"
+        }
+      },
+      "arrival": {
+        "airport": {
+          "title": "\u041f\u0443\u043b\u043a\u043e\u0432\u043e",
+          "code": "LED"
+        },
+        "datetime": {
+          "date": "19.01.2023",
+          "time": "16:05"
+        }
+      },
+      "carrier_code": "S7",
+      "flight_number": "S7 1013",
+      "carryon": {
+        "count": 1,
+        "weight": 10,
+        "width": 55,
+        "height": 23,
+        "length": 40
+      },
+      "luggage": {
+        "count": 0,
+        "weight": null
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "title": "\u041f\u0443\u043b\u043a\u043e\u0432\u043e",
+          "code": "LED"
+        },
+        "datetime": {
+          "date": "22.01.2023",
+          "time": "12:20"
+        }
+      },
+      "arrival": {
+        "airport": {
+          "title": "\u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e",
+          "code": "DME"
+        },
+        "datetime": {
+          "date": "22.01.2023",
+          "time": "14:00"
+        }
+      },
+      "carrier_code": "S7",
+      "flight_number": "S7 1010",
+      "carryon": {
+        "count": 1,
+        "weight": 10,
+        "width": 55,
+        "height": 23,
+        "length": 40
+      },
+      "luggage": {
+        "count": 0,
+        "weight": null
+      }
+    }
+  ],
+  "passengers": [
+    {
+      "first_name": "SEMEN",
+      "last_name": "BORISOV",
+      "middle_name": null,
+      "birthday": "07.08.1994",
+      "document_number": "60 7776777",
+      "document_expired": "07.08.1994"
+    }
+  ],
+  "tour": {
+    "destination_country": "\u0420\u043e\u0441\u0441\u0438\u044f",
+    "city_from": "\u041c\u043e\u0441\u043a\u0432\u0430",
+    "destination": "\u0410\u0434\u043c\u0438\u0440\u0430\u043b\u0442\u0435\u0439\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d",
+    "date_from": "19.01.2023",
+    "date_to": "22.01.2023",
+    "nights_count": 3,
+    "hotel": "\u0413\u043e\u0441\u0442\u0435\u0432\u043e\u0439 \u0414\u043e\u043c Yes",
+    "transfer": false,
+    "hotel_room_name": "\u041e\u0431\u0449\u0438\u0439 \u043c\u0443\u0436\u0441\u043a\u043e\u0439 \u043d\u043e\u043c\u0435\u0440",
+    "meal_type": "\u0411\u0435\u0437 \u043f\u0438\u0442\u0430\u043d\u0438\u044f"
+  },
+  "user_full_name": "dasd"
+}

@@ -1,0 +1,39 @@
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+  /**
+   * service: 'gmail' - для гугла
+   * host: 'smtp.mail.ru' - для мейл ру
+   * host: 'smtp.yandex.ru' - для яндекса
+   * */
+  host: 'smtp.mail.ru',
+  port: 465,
+  secure: true,
+  /**
+   * user - логин ящика
+   * pass - пароль ящика
+   * для яндекса - пароль от почты (на момент написания)
+   * для мейл ру и gmail нужен пароль для внешнего приложения
+   * https://help.mail.ru/mail/security/protection/external
+   * https://support.google.com/accounts/answer/185833?hl=ru
+   * */
+  auth: {
+    user: '',
+    pass: ''
+  }
+});
+
+/**
+ * from - от кого
+ * to - кому
+ * subject - тема письма
+ * */
+const mailOptions = {
+  from: '',
+  to: '',
+  subject: 'Sending Email using Node.js'
+};
+
+module.exports = {
+  transporter,
+  mailOptions
+}

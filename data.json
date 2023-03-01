@@ -1,0 +1,16 @@
+{
+  "user_payer_name": string; // имя юзера, который забронировал заказ
+  "tour": { // информация о туре
+    "country": string; // страна
+    "city": string; // город
+    "date_from": string; // дата начала путешествия в формате DD.MM.YYYY
+    "date_to": string; // дата окончания путешествия в формате DD.MM.YYYY
+    "nights_count": number; // кол-во ночей
+    "hotel": string; // название отеля
+    "address": string; // адрес отеля
+    "accommodation": string; // тип номера
+    "transfer": boolean; // наличие трансфера
+    "meal_type": string | null; // тип питания
+    "extras": string | null; // доп.услуги
+  }
+}
