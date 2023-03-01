@@ -1,7 +1,7 @@
 {
   "watch": [
     "server.js",
-    "views/"
+    "struct/"
   ],
   "ext": "js, twig"
 }

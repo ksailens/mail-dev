@@ -7,6 +7,7 @@
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.2.2",
     "express": "4.17.1",
+    "node-notifier": "^10.0.1",
     "nodemailer": "^6.4.17",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -15,7 +16,7 @@
     "web-vitals": "0.2.4"
   },
   "scripts": {
-    "start": "nodemon --watch ./views ./server.js"
+    "start": "nodemon --watch ./struct ./server.js"
   },
   "eslintConfig": {
     "extends": [
